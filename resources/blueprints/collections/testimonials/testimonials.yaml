@@ -1,0 +1,19 @@
+title: Testimonials
+tabs:
+  main:
+    display: Main
+    sections:
+      - fields:
+          - handle: quote
+            field:
+              type: textarea
+              display: Quote
+              validate: [required]
+          - handle: author_name
+            field:
+              type: text
+              display: 'Author name'
+          - handle: author_role
+            field:
+              type: text
+              display: 'Author role'

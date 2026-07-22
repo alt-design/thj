@@ -1,0 +1,35 @@
+title: Stock
+tabs:
+  main:
+    display: Main
+    sections:
+      - fields:
+          - handle: title
+            field:
+              type: text
+              display: Title
+              instructions: 'e.g. 1958 Ferrari 250 GT LWB California Spyder'
+              validate: [required]
+          - handle: price
+            field:
+              type: text
+              display: Price
+              instructions: 'Free text so POA is allowed, e.g. £POA'
+          - handle: excerpt
+            field:
+              type: textarea
+              display: Excerpt
+          - handle: feature_image
+            field:
+              type: assets
+              display: 'Feature image'
+              max_files: 1
+              container: assets
+          - handle: status_label
+            field:
+              type: select
+              display: Status
+              options:
+                current: 'Current stock'
+                sold: 'Previously sold'
+              default: current

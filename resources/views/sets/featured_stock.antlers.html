@@ -1,9 +1,9 @@
-<section class="mx-auto grid max-w-[1512px] md:grid-cols-[1fr_552px]">
+<section class="mx-auto grid max-w-[1512px] grid-cols-1 md:grid-cols-[1fr_552px]">
     {{ entries limit="1" }}
         <div class="aspect-[960/640] overflow-hidden">
             {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="h-full w-full object-cover">{{ /feature_image }}
         </div>
-        <div class="flex flex-col justify-center bg-panel p-14 text-paper">
+        <div class="flex flex-col justify-center bg-panel p-8 md:p-14 text-paper">
             <p class="text-[11px] font-medium uppercase tracking-[0.15em] text-paper/60">Previously sold</p>
             <h2 class="mt-5 text-[24px] font-black uppercase leading-tight">{{ title }}</h2>
             <p class="mt-5 text-[14px] leading-relaxed text-paper/70">{{ excerpt }}</p>

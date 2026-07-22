@@ -1,4 +1,4 @@
-<section class="relative overflow-hidden py-32 text-paper">
+<section class="relative overflow-hidden py-20 md:py-32 text-paper">
     {{ background }}<img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover">{{ /background }}
     <div class="absolute inset-0 bg-ink/70"></div>
 
@@ -6,7 +6,7 @@
     <div class="relative z-10 mx-auto max-w-3xl px-6" data-carousel="testimonials">
         {{ entries limit="1" }}
             <span class="block h-16 font-black leading-none text-paper/80 text-[120px]" aria-hidden="true">&ldquo;</span>
-            <blockquote class="text-[26px] font-medium leading-relaxed">{{ quote }}</blockquote>
+            <blockquote class="text-[20px] md:text-[26px] font-medium leading-relaxed">{{ quote }}</blockquote>
             <p class="mt-8 text-[14px] font-bold">{{ author_name }}</p>
             <p class="text-[13px] text-paper/70">{{ author_role }}</p>
         {{ /entries }}

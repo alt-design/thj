@@ -1,6 +1,26 @@
 <section class="mx-auto max-w-[1512px] px-6 py-24">
-    {{# Image cluster: 4 images positioned absolutely within a fixed-ratio container, crown layered on top. #}}
-    <div class="relative mx-auto w-full max-w-[1160px]" style="aspect-ratio: 1160 / 755">
+
+    {{# Mobile/tablet: simple 2-column image grid with crown above.
+       Desktop (md+): original absolute-positioned cluster restored. #}}
+
+    {{# Crown for mobile — centred above the grid #}}
+    <div class="flex justify-center mb-6 md:hidden">
+        <div class="w-24 text-ink">
+            {{ svg src="crown" class="w-full h-auto" }}
+        </div>
+    </div>
+
+    {{# Mobile grid — hidden at md+ #}}
+    <div class="grid grid-cols-2 gap-4 md:hidden">
+        {{ images }}
+            <div class="overflow-hidden">
+                <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+            </div>
+        {{ /images }}
+    </div>
+
+    {{# Desktop cluster — hidden below md #}}
+    <div class="relative mx-auto w-full max-w-[1160px] hidden md:block" style="aspect-ratio: 1160 / 755">
         {{ images }}
             {{ if index == 1 }}
                 <div class="absolute overflow-hidden" style="left: 0%; top: 32%; width: 50%; aspect-ratio: 583/515">
@@ -23,12 +43,12 @@
 
         {{# Crown sits above all images via z-10. #}}
         <div class="absolute z-10 text-ink" style="left: 71%; top: 10%; width: 29%">
-            {{ svg src="crown" }}
+            {{ svg src="crown" class="w-full h-auto" }}
         </div>
     </div>
 
     <div class="mt-16 text-center">
-        <p class="mx-auto max-w-[48rem] text-[22px] font-black uppercase leading-tight">{{ statement }}</p>
+        <p class="mx-auto max-w-[48rem] text-[18px] md:text-[22px] font-black uppercase leading-tight">{{ statement }}</p>
         {{ if link }}
             <a href="{{ link:url }}" class="mt-6 inline-block border-b border-ink pb-1 text-[12px] font-black uppercase tracking-wide">About us</a>
         {{ else }}

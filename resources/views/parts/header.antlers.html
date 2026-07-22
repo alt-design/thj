@@ -1,8 +1,8 @@
 <header class="sticky top-0 z-50 bg-paper border-b border-ink/10">
-    <div class="relative flex items-center max-w-[1512px] mx-auto px-6 h-28">
+    <div class="relative flex items-center max-w-[1512px] mx-auto px-6 h-20 md:h-28">
 
         {{# Left nav #}}
-        <nav class="flex items-center gap-8" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
             <a href="/current-stock" class="text-[13px] font-black uppercase tracking-widest text-ink hover:opacity-60 transition-opacity">
                 Current Stock
             </a>
@@ -13,7 +13,7 @@
 
         {{# Centred monogram lockup #}}
         <a href="/" aria-label="Tom Hartley Jnr home" class="absolute left-1/2 -translate-x-1/2">
-            {{ svg src="monogram" class="h-16 w-auto" }}
+            {{ svg src="monogram" class="h-12 md:h-16 w-auto" }}
         </a>
 
         {{# Right: menu toggle (stub — panel deferred) #}}

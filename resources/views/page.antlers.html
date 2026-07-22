@@ -1,2 +1,5 @@
-{{# Page template — block rendering is wired up in a later task. #}}
 {{ blocks }}
+    {{ if type == 'hero' || type == 'stock_grid' || type == 'featured_stock' }}
+        {{ partial src="sets/{type}" }}
+    {{ /if }}
+{{ /blocks }}

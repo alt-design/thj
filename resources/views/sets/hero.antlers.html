@@ -1,0 +1,13 @@
+<section class="relative flex h-screen items-end justify-center overflow-hidden">
+    {{# Background is a still now. When the client supplies the hero clip this becomes
+        <video autoplay muted loop playsinline> with the same object-cover treatment. #}}
+    {{ background }}
+        <img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover">
+    {{ /background }}
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 to-transparent"></div>
+
+    <h1 class="relative z-10 mb-[18vh] text-center font-normal uppercase text-paper">
+        <span class="block text-[34px] leading-[43px]">{{ heading_one }}</span>
+        <span class="block text-[47px] leading-[56px]">{{ heading_two }}</span>
+    </h1>
+</section>

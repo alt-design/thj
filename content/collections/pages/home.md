@@ -29,6 +29,7 @@ blocks:
       - placeholders/collage-1.jpg
       - placeholders/collage-2.jpg
       - placeholders/collage-3.jpg
+      - placeholders/collage-4.jpg
   -
     type: testimonials
     enabled: true

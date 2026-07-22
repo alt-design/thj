@@ -1,0 +1,17 @@
+<section class="mx-auto max-w-[1512px] px-6 py-24">
+    <div class="flex items-end justify-between">
+        <h2 class="text-[34px] font-black uppercase leading-none">{{ title }}</h2>
+        <a href="/journal" class="border-b border-ink pb-1 text-[12px] font-black uppercase tracking-wide">View all</a>
+    </div>
+
+    {{# Carousel track. Static now; GSAP autoscroll added later. #}}
+    <div class="mt-12 overflow-hidden">
+        <div class="flex gap-6" data-carousel="journal">
+            {{ if source == 'selected' }}
+                {{ entries }}{{ partial:parts/journal_card }}{{ /entries }}
+            {{ else }}
+                {{ collection:journal sort="date:desc" limit="4" }}{{ partial:parts/journal_card }}{{ /collection:journal }}
+            {{ /if }}
+        </div>
+    </div>
+</section>

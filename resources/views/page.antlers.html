@@ -1,5 +1,3 @@
 {{ blocks }}
-    {{ if type == 'hero' || type == 'stock_grid' || type == 'featured_stock' }}
-        {{ partial src="sets/{type}" }}
-    {{ /if }}
+    {{ partial src="sets/{type}" }}
 {{ /blocks }}

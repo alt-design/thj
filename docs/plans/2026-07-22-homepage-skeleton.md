@@ -49,13 +49,15 @@ Frame `24:348`. Sections top to bottom:
 
 ## Task 1: Install Statamic into the project
 
-The working directory already holds `.idea/`, `docs/`, `fonts/`, and `homepage.png`, so `composer create-project` cannot install in place (it needs an empty target). Install into a temporary sibling, then merge in, preserving our existing files.
+The working directory is already a git repo (branch `main`) and holds `.git/`, `.gitignore`, `.idea/`, `docs/`, `fonts/`, and `homepage.png`, so `composer create-project` cannot install in place (it needs an empty target). Install into a temporary sibling, then merge in, preserving our existing files and the repo.
 
 **Files:**
 - Create: the whole Statamic app tree.
-- Preserve: `docs/`, `fonts/`, `homepage.png`.
+- Preserve: `.git/`, `docs/`, `fonts/`, `homepage.png`.
 
 - [ ] **Step 1: Preserve existing files**
+
+Move only our tracked working files aside. Leave `.git/` where it is so history is kept.
 
 ```bash
 cd /Users/lucy/Sites/thj
@@ -75,7 +77,8 @@ When prompted for a starter kit, choose **No / blank** (standard install). Leave
 
 ```bash
 cd /Users/lucy/Sites/thj-install
-# move everything including dotfiles into the project root
+# move everything including dotfiles into the project root.
+# our existing .git/ stays untouched; Statamic's .gitignore replaces our minimal one.
 shopt -s dotglob
 mv * /Users/lucy/Sites/thj/
 shopt -u dotglob
@@ -83,6 +86,12 @@ cd /Users/lucy/Sites/thj
 rmdir /Users/lucy/Sites/thj-install
 mv _keep/docs _keep/fonts _keep/homepage.png .
 rmdir _keep
+```
+
+Then re-add our editor ignore rules to Statamic's `.gitignore` (append only if missing):
+
+```bash
+grep -qxF '.idea/' .gitignore || printf '\n.idea/\n.DS_Store\n' >> .gitignore
 ```
 
 - [ ] **Step 4: Verify the app boots**
@@ -103,15 +112,16 @@ php please serve
 ```
 Visit the printed URL (usually `http://127.0.0.1:8000`). Expected: the default Statamic welcome/home page renders. Stop the server with Ctrl+C.
 
-- [ ] **Step 6: Initialise git and commit the untouched install**
+- [ ] **Step 6: Commit the install into the existing repo**
+
+Git is already initialised (branch `main`, one prior commit holding the spec and plan). Just add and commit.
 
 ```bash
-git init
 git add -A
 git commit -m "Install Statamic"
 ```
 
-> Note: `git init` here is authorised by the user ("add to git once the basic skeleton is built"). This first commit gives a clean baseline to diff the skeleton against. Do not push.
+Do not push.
 
 ---
 

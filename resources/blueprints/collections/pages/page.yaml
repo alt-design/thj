@@ -1,0 +1,123 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      - fields:
+          - handle: title
+            field:
+              type: text
+              display: Title
+              validate: [required]
+          - handle: blocks
+            field:
+              type: replicator
+              display: 'Page builder'
+              sets:
+                hero:
+                  display: Hero
+                  fields:
+                    - handle: heading_one
+                      field:
+                        type: text
+                        display: 'Heading line 1'
+                    - handle: heading_two
+                      field:
+                        type: text
+                        display: 'Heading line 2'
+                    - handle: background
+                      field:
+                        type: assets
+                        display: 'Background video or image'
+                        max_files: 1
+                        container: assets
+                stock_grid:
+                  display: 'Stock grid'
+                  fields:
+                    - handle: title
+                      field:
+                        type: text
+                        display: Title
+                    - handle: intro
+                      field:
+                        type: textarea
+                        display: Intro
+                    - handle: link
+                      field:
+                        type: link
+                        display: 'View all link'
+                    - handle: source
+                      field:
+                        type: select
+                        display: Source
+                        options:
+                          recent: 'Show all (recent first)'
+                          selected: 'Select stock'
+                        default: recent
+                    - handle: entries
+                      field:
+                        type: entries
+                        display: 'Selected stock'
+                        collections: [stock]
+                        if:
+                          source: 'equals selected'
+                featured_stock:
+                  display: 'Featured stock'
+                  fields:
+                    - handle: entries
+                      field:
+                        type: entries
+                        display: 'Featured stock'
+                        collections: [stock]
+                collage:
+                  display: Collage
+                  fields:
+                    - handle: statement
+                      field:
+                        type: textarea
+                        display: Statement
+                    - handle: images
+                      field:
+                        type: assets
+                        display: Images
+                        container: assets
+                    - handle: link
+                      field:
+                        type: link
+                        display: 'About us link'
+                testimonials:
+                  display: Testimonials
+                  fields:
+                    - handle: entries
+                      field:
+                        type: entries
+                        display: Testimonials
+                        collections: [testimonials]
+                    - handle: background
+                      field:
+                        type: assets
+                        display: 'Background image'
+                        max_files: 1
+                        container: assets
+                journal_carousel:
+                  display: 'Journal carousel'
+                  fields:
+                    - handle: title
+                      field:
+                        type: text
+                        display: Title
+                    - handle: source
+                      field:
+                        type: select
+                        display: Source
+                        options:
+                          recent: 'Show all (recent first)'
+                          selected: 'Select entries'
+                        default: recent
+                    - handle: entries
+                      field:
+                        type: entries
+                        display: 'Selected entries'
+                        collections: [journal]
+                        if:
+                          source: 'equals selected'

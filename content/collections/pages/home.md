@@ -1,16 +1,43 @@
 ---
-title: Home
 id: 049ed0c0-9796-43f7-b158-4f6129328c12
-template: home
+title: 'Tom Hartley Jnr'
+template: page
 blueprint: pages
+blocks:
+  -
+    type: hero
+    enabled: true
+    heading_one: 'The Art of Collecting'
+    heading_two: 'Extraordinary Cars'
+    background: placeholders/hero-still.jpg
+  -
+    type: stock_grid
+    enabled: true
+    title: 'Current Stock'
+    intro: 'We stock only the finest, hand-selected sports, classic and luxury cars.'
+    source: recent
+  -
+    type: featured_stock
+    enabled: true
+    entries:
+      - 3357e287-4c51-42b9-85fe-fba8be500fe6
+  -
+    type: collage
+    enabled: true
+    statement: 'Over 25 years of experience dealing at the very highest end of the classic & performance car market.'
+    images:
+      - placeholders/collage-1.jpg
+      - placeholders/collage-2.jpg
+      - placeholders/collage-3.jpg
+  -
+    type: testimonials
+    enabled: true
+    entries:
+      - be9c9a9f-7aa6-451b-bf1f-6587e5b89634
+    background: placeholders/testimonial-bg.jpg
+  -
+    type: journal_carousel
+    enabled: true
+    title: Journal
+    source: recent
 ---
-## Welcome to your brand new Statamic site!
-
-Not sure what to do next? Here are a few ideas, but feel free to explore in your own way, in your own time.
-
-- [Jump into the Control Panel](/cp) and edit this page or begin setting up your own collections and blueprints.
-- [Head to the docs](https://statamic.dev) and learn how Statamic works.
-- [Watch some Statamic videos](https://youtube.com/statamic) on YouTube.
-- [Join our Discord chat](https://statamic.com/discord) and meet thousands of other Statamic developers.
-- [Start a discussion](https://github.com/statamic/cms/discussions) and get answers to your questions.
-- [Star Statamic on Github](https://github.com/statamic/cms) if you enjoy using it!

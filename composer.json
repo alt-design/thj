@@ -11,6 +11,10 @@
     ],
     "require": {
         "php": "^8.3",
+        "alt-design/alt-cookies": "^1.2",
+        "alt-design/alt-redirect": "^1.8",
+        "alt-design/alt-seo": "^1.4",
+        "alt-design/alt-sitemap": "^1.4",
         "laravel/framework": "^13.8",
         "laravel/tinker": "^3.0",
         "statamic/cms": "^6.0"

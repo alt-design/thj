@@ -1,0 +1,23 @@
+{
+  "resources/css/alt-cookies-addon.css": {
+    "file": "assets/alt-cookies-addon-CqofhORR.css",
+    "src": "resources/css/alt-cookies-addon.css",
+    "isEntry": true,
+    "name": "alt-cookies-addon",
+    "names": [
+      "alt-cookies-addon.css"
+    ]
+  },
+  "resources/js/alt-cookies-addon.js": {
+    "file": "assets/alt-cookies-addon-l0sNRNKZ.js",
+    "name": "alt-cookies-addon",
+    "src": "resources/js/alt-cookies-addon.js",
+    "isEntry": true
+  },
+  "resources/js/frontend-manager.js": {
+    "file": "assets/frontend-manager-Apaz9CON.js",
+    "name": "frontend-manager",
+    "src": "resources/js/frontend-manager.js",
+    "isEntry": true
+  }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a2bab17c7451c1166fd45e73f3a3a36",
+    "content-hash": "08a092b0a0239b55ada18e074491162e",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -68,6 +68,198 @@
                 "source": "https://github.com/ajthinking/archetype/tree/v2.0.0"
             },
             "time": "2024-05-11T08:05:58+00:00"
+        },
+        {
+            "name": "alt-design/alt-cookies",
+            "version": "v1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alt-design/Alt-Cookies-Addon.git",
+                "reference": "b7013916f8059c8db98ca6b11d4f4226bdc74c40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alt-design/Alt-Cookies-Addon/zipball/b7013916f8059c8db98ca6b11d4f4226bdc74c40",
+                "reference": "b7013916f8059c8db98ca6b11d4f4226bdc74c40",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^4.0|^5.73.20|^6.14"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AltDesign\\AltCookiesAddon\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Alt Cookies",
+                    "description": "Alt Cookies"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AltDesign\\AltCookiesAddon\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Helps handle scripts and cookies on your Statamic site",
+            "support": {
+                "issues": "https://github.com/alt-design/Alt-Cookies-Addon/issues",
+                "source": "https://github.com/alt-design/Alt-Cookies-Addon/tree/v1.2.4"
+            },
+            "time": "2026-07-02T14:07:38+00:00"
+        },
+        {
+            "name": "alt-design/alt-redirect",
+            "version": "v1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alt-design/Alt-Redirect-Addon.git",
+                "reference": "2f7d6bc9424230fbe85392c8bda08a7b57d2b983"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alt-design/Alt-Redirect-Addon/zipball/2f7d6bc9424230fbe85392c8bda08a7b57d2b983",
+                "reference": "2f7d6bc9424230fbe85392c8bda08a7b57d2b983",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "statamic/cms": "^6.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.29",
+                "orchestra/testbench": "^11.1",
+                "pestphp/pest": "^4.4",
+                "pestphp/pest-plugin-laravel": "^4.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AltDesign\\AltRedirect\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Alt Redirect",
+                    "description": "Alt Redirect addon"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AltDesign\\AltRedirect\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Alt Redirect addon, add Redirects to your site",
+            "support": {
+                "issues": "https://github.com/alt-design/Alt-Redirect-Addon/issues",
+                "source": "https://github.com/alt-design/Alt-Redirect-Addon/tree/v1.8.1"
+            },
+            "time": "2026-05-12T15:22:48+00:00"
+        },
+        {
+            "name": "alt-design/alt-seo",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alt-design/Alt-SEO-Addon.git",
+                "reference": "f57d7d6958e54a37fd729f63303ae5cb04e2e930"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alt-design/Alt-SEO-Addon/zipball/f57d7d6958e54a37fd729f63303ae5cb04e2e930",
+                "reference": "f57d7d6958e54a37fd729f63303ae5cb04e2e930",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "statamic/cms": "^4.0|^5.0|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AltDesign\\AltSeo\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Alt Seo",
+                    "description": "Alt Seo addon"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AltDesign\\AltSeo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Alt SEO addon, add SEO tags to your site",
+            "support": {
+                "issues": "https://github.com/alt-design/Alt-SEO-Addon/issues",
+                "source": "https://github.com/alt-design/Alt-SEO-Addon/tree/v1.4.3"
+            },
+            "time": "2026-05-05T08:04:53+00:00"
+        },
+        {
+            "name": "alt-design/alt-sitemap",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alt-design/Alt-Sitemap-Addon.git",
+                "reference": "9e9113ad62f102ddd95d30ee932f619a32bd0801"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alt-design/Alt-Sitemap-Addon/zipball/9e9113ad62f102ddd95d30ee932f619a32bd0801",
+                "reference": "9e9113ad62f102ddd95d30ee932f619a32bd0801",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "statamic/cms": "^4.0|^5.73.20|^6.14"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.20"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AltDesign\\AltSitemap\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Alt Sitemap",
+                    "description": "Alt Sitemap addon"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AltDesign\\AltSitemap\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Alt Sitemap addon, create a sitemap from Statamic entries",
+            "support": {
+                "issues": "https://github.com/alt-design/Alt-Sitemap-Addon/issues",
+                "source": "https://github.com/alt-design/Alt-Sitemap-Addon/tree/v1.4.3"
+            },
+            "time": "2026-04-20T16:00:04+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",

@@ -1,1 +1,38 @@
-{{# Placeholder header. Replaced with the real header in Task 9. #}}
+<header class="sticky top-0 z-50 bg-paper border-b border-ink/10">
+    <div class="relative flex items-center max-w-[1512px] mx-auto px-6 h-28">
+
+        {{# Left nav #}}
+        <nav class="flex items-center gap-8" aria-label="Primary navigation">
+            <a href="/current-stock" class="text-[13px] font-black uppercase tracking-widest text-ink hover:opacity-60 transition-opacity">
+                Current Stock
+            </a>
+            <a href="/previously-sold" class="text-[13px] font-black uppercase tracking-widest text-ink hover:opacity-60 transition-opacity">
+                Previously Sold
+            </a>
+        </nav>
+
+        {{# Centred monogram lockup #}}
+        <a href="/" aria-label="Tom Hartley Jnr home" class="absolute left-1/2 -translate-x-1/2">
+            {{ svg src="monogram" class="h-16 w-auto" }}
+        </a>
+
+        {{# Right: menu toggle (stub — panel deferred) #}}
+        <div class="ml-auto flex items-center">
+            <button
+                type="button"
+                aria-expanded="false"
+                aria-controls="site-menu"
+                data-menu-toggle
+                class="flex items-center gap-2.5 text-[13px] font-black uppercase tracking-widest text-ink hover:opacity-60 transition-opacity"
+            >
+                <span>Menu</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16" fill="none" width="22" height="16" aria-hidden="true">
+                    <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5"/>
+                    <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5"/>
+                    <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </button>
+        </div>
+
+    </div>
+</header>

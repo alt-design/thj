@@ -155,3 +155,32 @@ Not blockers for the skeleton, but required before launch.
 - The header "menu" open state design.
 - Real media: the hero background video, car imagery, and journal content.
 - Confirmation the MyFonts licence covers the new site and domain (see section 7).
+
+## 12. Build notes and decisions taken during the skeleton
+
+Recorded during the homepage skeleton build (2026-07-22). These resolve points where the plan or spec did not match the Figma, or where a judgement call was needed.
+
+### Deviations from the plan or spec, made to match the Figma
+
+- **Footer is a white card, not a dark block.** Section 6 described the footer as a "dark block". The Figma actually shows a dark patterned band carrying the white "Tom Hartley Jnr" logo, with a white rounded card below holding all the footer content in black text. Built to match the Figma. The faint diamond/argyle texture on the dark band was not reproduced (a solid `#1f1f1f` band stands in); it can be added later as a background pattern.
+- **Hero heading weights.** Both hero lines are Avenir Roman (weight 400), not heavy. Line 1 is 34px/43, line 2 is 47px/56, both uppercase white, sitting in the lower-centre of the hero. (The plan had guessed line 2 was heavy.)
+- **Header is a solid white sticky bar**, not a transparent overlay. It sits above the hero in the document flow (the hero is not tucked behind it). Nav is uppercase and letter-spaced ("CURRENT STOCK", "PREVIOUSLY SOLD", "MENU" + hamburger).
+- **Featured stock references the "previously sold" entry.** The plan wired the featured block to a current-stock car, but the design's panel is labelled "Previously Sold", so it points at the sold entry (with the red car image) instead.
+- **MyFonts beacon loads as a `<link>` in the head**, not a CSS `@import` (Tailwind's import expansion made the CSS import position invalid, so browsers ignored it and the licence pixel never fired).
+- **SEO head tag is `{{ alt_seo:meta }}`** (the tag the installed alt-seo package actually exposes), not the `{{ alt-seo:head }}` the plan assumed.
+- **Collage** is an approximation of the Figma's overlapping cluster: four images absolutely positioned to overlap at `md`+ with the large TH crown layered on top, collapsing to a simple grid on mobile. A fourth collage image (Figma node 24:607) was added so the cluster reads closer to the design.
+
+### Placeholder copy and content (replace with real content)
+
+- **Stock card titles repeat** ("1958 Ferrari 250 GT LWB California Spyder" appears on two grid cards and the featured panel). This mirrors the Figma mockup, which reuses the same title. Real distinct stock should replace them.
+- **Journal**: two entries share the title "A New Chapter for Tom Hartley Jnr" (again mirroring the Figma). Journal excerpts were left blank (the design shows none on the cards).
+- **All imagery is exported from the Figma** as placeholders (`public/assets/placeholders/`). Two car stills (stock card 3, journal card 4) were reconstructed from the raw source images because their Figma frames clipped at the canvas edge. The hero uses a still standing in for the client's background video.
+- **Footer "Tom Talks" and "Videos"** were split into two links; the Figma layer grouped them ambiguously as one line.
+- **Award logos**: the Figma's two footer awards are the Queen's Award emblem (SVG) and "The Chartered Institute of Logistics and Transport" (raster).
+- **Dead links**: header/footer navigation (`/current-stock`, `/previously-sold`, `/journal`, `/about-us`, and the footer columns) point at pages that are out of scope for this phase and will 404 until those pages are built.
+
+### Known simplifications (deferred, per scope section 9)
+
+- Carousels/sliders are static tracks with `data-carousel` hooks; no GSAP motion yet.
+- The header "menu" is an accessible stub button with no panel.
+- The newsletter signup is static markup (disabled input); it becomes a Livewire island later.

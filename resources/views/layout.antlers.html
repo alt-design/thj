@@ -1,15 +1,19 @@
-<!doctype html>
-<html lang="{{ site:short_locale }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ (title ?? site:name) | sanitize }}</title>
-        {{ vite src="resources/js/site.js|resources/css/site.css" }}
-    </head>
-    <body class="bg-zinc-100 dark:bg-zinc-900 font-sans leading-normal text-zinc-800 dark:text-zinc-400">
-        <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
-            {{ template_content }}
-        </div>
-    </body>
+<!DOCTYPE html>
+<html lang="{{ site:short_locale }}" class="antialiased">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//hello.myfonts.net/count/372eb5">
+    {{ alt_seo:meta }}
+    {{ vite src="resources/css/site.css|resources/js/site.js" }}
+</head>
+<body class="bg-paper font-sans text-ink">
+    {{ partial:parts/header }}
+
+    <main>
+        {{ template_content }}
+    </main>
+
+    {{ partial:parts/footer }}
+</body>
 </html>

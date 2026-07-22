@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@import url(//hello.myfonts.net/count/372eb5);
 
 /* Scan Antlers templates and content so Tailwind generates the classes we use. */
 @source '../views';

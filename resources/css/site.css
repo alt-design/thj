@@ -1,3 +1,49 @@
 @import 'tailwindcss';
+@import url(//hello.myfonts.net/count/372eb5);
 
-/* Avenir @font-face and @theme tokens are added in Task 4. */
+/* Scan Antlers templates and content so Tailwind generates the classes we use. */
+@source '../views';
+@source '../../content';
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/372EB5_1_0.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/372EB5_2_0.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/372EB5_0_0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/372EB5_3_0.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-sans: 'Avenir', ui-sans-serif, system-ui, sans-serif;
+
+    /* Palette sampled from Figma. Refined further during section tasks.
+       Featured panel node 24:352 is pure black. Page background is white. */
+    --color-ink: #000000;
+    --color-paper: #ffffff;
+    --color-cream: #f5f4ef;
+    --color-panel: #000000;
+}

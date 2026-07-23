@@ -21,6 +21,8 @@ blocks:
     enabled: true
     entries:
       - 3357e287-4c51-42b9-85fe-fba8be500fe6
+      - 9b1d4f2a-3c07-4a6e-9f21-2d5b8e7c1a44
+      - 4e8c6b19-7a20-4d3f-8c15-6f9a2b0d3e57
   -
     type: collage
     enabled: true

@@ -4,7 +4,7 @@
         <a href="/journal" class="border-b border-ink pb-1 text-[12px] font-black uppercase tracking-wide shrink-0">View all</a>
     </div>
 
-    {{# Carousel track. Static now; GSAP autoscroll added later. #}}
+    {{# Carousel track. Autoscrolls on desktop via GSAP; native touch scroll below md. #}}
     <div class="mt-12 min-w-0 overflow-x-auto pb-4 snap-x snap-mandatory md:overflow-hidden md:pb-0">
         <div class="flex gap-6" data-carousel="journal">
             {{ if source == 'selected' }}

@@ -15,9 +15,14 @@
             </a>
         </nav>
 
-        {{# Centred monogram lockup #}}
+        {{# Centred monogram lockup. The wordmark shows from load; the shield is
+            supplied by the hero shield docking into place, then held by the full
+            lockup overlaid here (revealed as that travelling shield fades out). #}}
         <a data-header-logo href="/" aria-label="Tom Hartley Jnr home" class="absolute left-1/2 bottom-[calc(var(--spacing-gutter)/2+4px)] -translate-x-1/2">
-            {{ svg src="monogram" class="h-[52px] md:h-[68px] w-auto" }}
+            {{ svg src="monogram-text" class="block h-[52px] md:h-[68px] w-auto" }}
+            <span data-header-shield aria-hidden="true" class="absolute inset-0 opacity-0">
+                {{ svg src="monogram" class="block h-full w-auto" }}
+            </span>
         </a>
 
         {{# Right: menu toggle (stub — panel deferred) #}}

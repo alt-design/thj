@@ -4,6 +4,7 @@ import { initHero } from './hero.js'
 import { initCollage } from './collage.js'
 import { initCarousel } from './carousel.js'
 import { initTestimonials } from './testimonials.js'
+import { initFeatured } from './featured.js'
 import { initFooter } from './footer.js'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -14,4 +15,5 @@ initCollage()
 initCarousel('[data-carousel="stock"]')
 initCarousel('[data-carousel="journal"]')
 initTestimonials()
+initFeatured()
 initFooter()

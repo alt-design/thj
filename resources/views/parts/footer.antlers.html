@@ -6,108 +6,107 @@
         {{# Wordmark held off the top and left by the global padding #}}
         <div class="pt-pad pl-pad">
             <span class="[&_path]:fill-white [&_rect]:fill-white">
-                {{ svg src="wordmark" class="h-12 w-auto" }}
+                {{ svg src="wordmark" class="h-16 w-auto" }}
             </span>
         </div>
 
         {{# Part B: white content card, held off the sides and bottom by the global margin #}}
-        <div class="px-gutter pb-gutter mt-16 md:mt-24">
-            <div class="bg-paper text-ink p-8 md:p-12">
+        <div class="px-gutter pb-gutter mt-47 md:mt-67">
+            <div class="bg-paper text-ink p-6 md:p-10">
 
-                {{# Top area: statement + nav columns #}}
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16">
 
-                    {{# Statement #}}
-                    <div>
-                        <p class="font-black uppercase text-[22px] md:text-[28px] lg:text-[32px] leading-tight max-w-[30rem]">
-                            The best decision you'll ever make.
-                        </p>
-                    </div>
+                    {{# Left column: statement above the newsletter signup #}}
+                    <div class="flex flex-col justify-between gap-10">
+                        <div>
+                            <p class="font-bold uppercase text-[16px] md:text-[20px] lg:text-[24px] leading-tight max-w-[30rem] whitespace-nowrap">
+                                The best decision you'll ever make.
+                            </p>
+                        </div>
 
-                    {{# Nav columns #}}
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-[14px] text-ink">
-
-                        <ul class="space-y-2.5">
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">About Us</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Sales</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">About Tom Hartley Jnr</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Testimonials</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">News &amp; Events</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Tom Talks</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Videos</a></li>
-                        </ul>
-
-                        <ul class="space-y-2.5">
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Selling Your Car</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Our Services</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Expert Advice</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Finance</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Private Storage Facility</a></li>
-                            <li><a href="#" class="hover:opacity-60 transition-opacity">Join the Team</a></li>
-                        </ul>
-
-                        <div class="space-y-2.5">
-                            <p><a href="tel:+441608532500" class="hover:opacity-60 transition-opacity">+44 (0)1608 532500</a></p>
-                            <p><a href="mailto:info@tomhartleyjnr.com" class="hover:opacity-60 transition-opacity">info@tomhartleyjnr.com</a></p>
-                            <div class="flex items-center gap-4 pt-2">
-                                <a href="#" aria-label="X / Twitter" class="hover:opacity-60 transition-opacity">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
-                                        <path d="M13.92 1.5h2.4L10.8 7.74 17.1 16.5h-4.95l-3.84-5.01L3.93 16.5H1.53l5.82-6.66L1.05 1.5h5.07l3.48 4.59Zm-.84 13.5h1.32L5.01 2.85H3.6Z"/>
-                                    </svg>
-                                </a>
-                                <a href="#" aria-label="Facebook" class="hover:opacity-60 transition-opacity">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
-                                        <path d="M16 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7.5v-5.5H7V9h2.5V7c0-2.5 1.5-3.8 3.7-3.8.75 0 1.55.06 2.3.18v2.7h-1.6c-1.2 0-1.4.56-1.4 1.4V9H15l-.5 2.5h-2V17H16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                                    </svg>
-                                </a>
-                                <a href="#" aria-label="Instagram" class="hover:opacity-60 transition-opacity">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                        <rect x="2" y="2" width="14" height="14" rx="4"/>
-                                        <circle cx="9" cy="9" r="3.5"/>
-                                        <circle cx="13.2" cy="4.8" r="0.8" fill="currentColor" stroke="none"/>
-                                    </svg>
-                                </a>
-                                <a href="#" aria-label="YouTube" class="hover:opacity-60 transition-opacity">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
-                                        <path d="M16.5 4.5s-.2-1.3-.8-1.9c-.75-.79-1.6-.8-2-.84C11.6 1.5 9 1.5 9 1.5S6.4 1.5 4.3 1.76c-.4.04-1.25.05-2 .84-.6.6-.8 1.9-.8 1.9S1.3 5.98 1.3 7.46v1.4c0 1.48.2 2.96.2 2.96s.2 1.3.8 1.9c.75.79 1.74.76 2.18.84C5.7 14.72 9 14.75 9 14.75s2.6-.04 4.7-.3c.4-.04 1.25-.05 2-.84.6-.6.8-1.9.8-1.9s.2-1.48.2-2.96v-1.4c0-1.48-.2-2.96-.2-2.96ZM7.4 11.25V6.6l5.4 2.33-5.4 2.32Z"/>
-                                    </svg>
-                                </a>
+                        {{# Newsletter signup — static placeholder. Replace with a Livewire component in a later task. #}}
+                        <div class="max-w-[32rem]">
+                            <div class="flex items-center border-b-4 border-ink pb-1.5">
+                                <input
+                                    type="email"
+                                    aria-label="Sign up for our newsletter"
+                                    placeholder="Sign up for our newsletter"
+                                    disabled
+                                    class="flex-1 bg-transparent text-[13px] text-ink placeholder:text-ink placeholder:uppercase focus:outline-none"
+                                >
+                                <span class="text-ink pl-2">&rarr;</span>
                             </div>
                         </div>
-
                     </div>
-                </div>
 
-                {{# Bottom area: newsletter, awards, copyright #}}
-                <div class="flex flex-col lg:flex-row lg:items-end gap-8 lg:gap-12 mt-12">
+                    {{# Right column: nav links above the award logos and legal links #}}
+                    <div class="flex flex-col justify-between gap-12">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-12 text-[13px] font-normal text-ink/70">
 
-                    {{# Newsletter signup — static placeholder. Replace with a Livewire component in a later task. #}}
-                    <div class="flex-1 max-w-[32rem]">
-                        <p class="text-[13px] font-black uppercase tracking-widest mb-3">Sign up for our newsletter</p>
-                        <div class="flex items-center border-b border-ink/40 pb-1.5">
-                            <input
-                                type="email"
-                                placeholder="Email address"
-                                disabled
-                                class="flex-1 bg-transparent text-[13px] text-ink placeholder:text-ink/50 focus:outline-none"
-                            >
-                            <span class="text-ink/50 pl-2">&rarr;</span>
+                            <ul class="space-y-1.5">
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">About Us</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Sales</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">About Tom Hartley Jnr</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Testimonials</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">News &amp; Events</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Tom Talks</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Videos</a></li>
+                            </ul>
+
+                            <ul class="space-y-1.5">
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Selling Your Car</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Our Services</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Expert Advice</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Finance</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Private Storage Facility</a></li>
+                                <li><a href="#" class="hover:opacity-60 transition-opacity">Join the Team</a></li>
+                            </ul>
+
+                            <div class="space-y-2.5 text-ink">
+                                <p class="text-[15px]"><a href="tel:+441608532500" class="hover:opacity-60 transition-opacity">+44 (0)1608 532500</a></p>
+                                <p class="text-[15px]"><a href="mailto:info@tomhartleyjnr.com" class="hover:opacity-60 transition-opacity">info@tomhartleyjnr.com</a></p>
+                                <div class="flex items-center gap-4 pt-6">
+                                    <a href="#" aria-label="X / Twitter" class="hover:opacity-60 transition-opacity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                            <path d="M13.92 1.5h2.4L10.8 7.74 17.1 16.5h-4.95l-3.84-5.01L3.93 16.5H1.53l5.82-6.66L1.05 1.5h5.07l3.48 4.59Zm-.84 13.5h1.32L5.01 2.85H3.6Z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" aria-label="Facebook" class="hover:opacity-60 transition-opacity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                            <path d="M16 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h7.5v-5.5H7V9h2.5V7c0-2.5 1.5-3.8 3.7-3.8.75 0 1.55.06 2.3.18v2.7h-1.6c-1.2 0-1.4.56-1.4 1.4V9H15l-.5 2.5h-2V17H16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" aria-label="Instagram" class="hover:opacity-60 transition-opacity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                            <rect x="2" y="2" width="14" height="14" rx="4"/>
+                                            <circle cx="9" cy="9" r="3.5"/>
+                                            <circle cx="13.2" cy="4.8" r="0.8" fill="currentColor" stroke="none"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" aria-label="YouTube" class="hover:opacity-60 transition-opacity">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" fill="currentColor" aria-hidden="true">
+                                            <path d="M16.5 4.5s-.2-1.3-.8-1.9c-.75-.79-1.6-.8-2-.84C11.6 1.5 9 1.5 9 1.5S6.4 1.5 4.3 1.76c-.4.04-1.25.05-2 .84-.6.6-.8 1.9-.8 1.9S1.3 5.98 1.3 7.46v1.4c0 1.48.2 2.96.2 2.96s.2 1.3.8 1.9c.75.79 1.74.76 2.18.84C5.7 14.72 9 14.75 9 14.75s2.6-.04 4.7-.3c.4-.04 1.25-.05 2-.84.6-.6.8-1.9.8-1.9s.2-1.48.2-2.96v-1.4c0-1.48-.2-2.96-.2-2.96ZM7.4 11.25V6.6l5.4 2.33-5.4 2.32Z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {{# Award logos above the copyright and legal links #}}
+                        <div class="flex flex-col gap-6">
+                            <div class="flex items-center gap-8">
+                                {{ svg src="award-queens" class="h-20 w-auto" }}
+                                <img src="/assets/placeholders/award-2.png" alt="Award" class="h-16 w-auto">
+                            </div>
+
+                            <div class="text-[11px] text-ink/60">
+                                &copy; Tom Hartley Jnr 2026. All rights reserved.
+                                Privacy Notice. Terms. Modern Slavery Statement.
+                                Youtube Video Disclaimer. Site by Alt.
+                            </div>
                         </div>
                     </div>
-
-                    {{# Award logos #}}
-                    <div class="flex items-center gap-8 shrink-0">
-                        {{ svg src="award-queens" class="h-20 w-auto" }}
-                        <img src="/assets/placeholders/award-2.png" alt="Award" class="h-16 w-auto">
-                    </div>
-
-                    {{# Copyright #}}
-                    <div class="text-[11px] text-ink/60 shrink-0 lg:text-right">
-                        &copy; Tom Hartley Jnr 2026. All rights reserved.
-                        Privacy Notice. Terms. Modern Slavery Statement.
-                        Youtube Video Disclaimer. Site by Alt.
-                    </div>
-
                 </div>
 
             </div>

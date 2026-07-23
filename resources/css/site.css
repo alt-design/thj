@@ -46,3 +46,59 @@
     --color-cream: #f5f4ef;
     --color-panel: #000000;
 }
+
+/*
+ * The header's two background layers. They are inert (invisible) on normal pages,
+ * where the header shows its own paper background. Over a hero they cross-fade,
+ * driven by --nav-t (0 = over the video, 1 = solid white).
+ */
+[data-site-header] [data-header-scrim],
+[data-site-header] [data-header-solid] {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+[data-site-header] [data-header-scrim] {
+    background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), transparent);
+}
+
+[data-site-header] [data-header-solid] {
+    background: var(--color-paper);
+    border-bottom: 1px solid rgb(0 0 0 / 0.1);
+}
+
+/*
+ * When a page opens with a hero, the global header becomes a fixed, transparent
+ * overlay that starts hidden above the viewport. GSAP drives its entrance; the
+ * initial hidden transform here prevents a flash of the paper header on load.
+ * --nav-t starts at 0: scrim fully shown, solid hidden, text and logo in paper.
+ */
+body.has-hero-header [data-site-header] {
+    --nav-t: 0;
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    background: transparent;
+    border-color: transparent;
+    transform: translateY(-100%);
+}
+
+body.has-hero-header [data-site-header] [data-header-scrim] {
+    opacity: calc(1 - var(--nav-t));
+}
+
+body.has-hero-header [data-site-header] [data-header-solid] {
+    opacity: var(--nav-t);
+}
+
+body.has-hero-header [data-site-header] a,
+body.has-hero-header [data-site-header] button {
+    color: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-t) * 100%));
+}
+
+body.has-hero-header [data-site-header] [data-header-logo] :is(path) {
+    fill: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-t) * 100%));
+}

@@ -39,11 +39,11 @@ export function initHero() {
         return
     }
 
-    // Intro: after a 1s hold, the shield eases in centred over 4s.
+    // Intro: after a 0.1s hold, the shield eases in centred over 2s.
     gsap.fromTo(
         logo,
         { opacity: 0 },
-        { opacity: 1, duration: 4, ease: 'sine.inOut', delay: 1 },
+        { opacity: 1, duration: 2, ease: 'sine.inOut', delay: 0.1 },
     )
 
     // Scroll-driven starting states. Set y:0 so GSAP owns the vertical transform

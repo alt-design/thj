@@ -1,22 +1,18 @@
-<section class="mx-auto grid max-w-[1512px] grid-cols-1 md:grid-cols-[1fr_552px]">
+<section class="grid grid-cols-1 md:grid-cols-[1fr_552px]">
     {{ entries limit="1" }}
         <div class="aspect-[960/640] overflow-hidden">
             {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="h-full w-full object-cover">{{ /feature_image }}
         </div>
-        <div class="flex flex-col justify-center bg-panel p-8 md:p-14 text-paper">
-            <p class="text-[11px] font-medium uppercase tracking-[0.15em] text-paper/60">Previously sold</p>
-            <h2 class="mt-5 text-[24px] font-black uppercase leading-tight">{{ title }}</h2>
-            <p class="mt-5 text-[14px] leading-relaxed text-paper/70">{{ excerpt }}</p>
-            <a href="{{ url }}" class="mt-7 inline-block border-b border-paper pb-1 text-[12px] font-black uppercase tracking-wide">View</a>
+        <div class="flex flex-col justify-between bg-panel p-pad text-paper">
+            <div>
+                <p class="text-[11px] font-medium uppercase tracking-[0.15em] text-paper/60">Previously sold</p>
+                <h2 class="mt-5 text-[24px] font-black uppercase leading-tight">{{ title }}</h2>
+                <p class="mt-5 text-[14px] leading-relaxed text-paper/70">{{ excerpt }}</p>
+            </div>
 
-            {{# Static slider controls. GSAP slider wired in a later phase. #}}
-            <div class="mt-10 flex items-center justify-between">
-                <div class="flex gap-2" aria-hidden="true">
-                    <span class="h-1.5 w-1.5 rounded-full bg-paper"></span>
-                    <span class="h-1.5 w-1.5 rounded-full bg-paper/40"></span>
-                    <span class="h-1.5 w-1.5 rounded-full bg-paper/40"></span>
-                </div>
-                <span aria-hidden="true" class="text-lg">&rarr;</span>
+            <div class="mt-10 flex items-end justify-between">
+                <a href="{{ url }}" class="inline-block border-b border-paper pb-1 text-[12px] font-black uppercase tracking-wide">View</a>
+                <span aria-hidden="true" class="text-lg leading-none">&rarr;</span>
             </div>
         </div>
     {{ /entries }}

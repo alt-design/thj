@@ -2,15 +2,17 @@
 
     {{# Part A: dark band with repeating diamond texture #}}
     <div style="background-color: #1f1f1f; background-image: url('/assets/footer_pattern.png'); background-repeat: repeat; background-size: 40px 40px;">
-        {{# Full-width frame: equal dark margin on the sides and bottom, drawn as padding so the texture fills it #}}
-        <div class="px-6 md:px-14 pt-14 pb-6 md:pb-14">
 
+        {{# Wordmark held off the top and left by the global padding #}}
+        <div class="pt-pad pl-pad">
             <span class="[&_path]:fill-white [&_rect]:fill-white">
                 {{ svg src="wordmark" class="h-12 w-auto" }}
             </span>
+        </div>
 
-            {{# Part B: full-width white content card #}}
-            <div class="bg-paper text-ink mt-16 md:mt-24 p-8 md:p-12">
+        {{# Part B: white content card, held off the sides and bottom by the global margin #}}
+        <div class="px-gutter pb-gutter mt-16 md:mt-24">
+            <div class="bg-paper text-ink p-8 md:p-12">
 
                 {{# Top area: statement + nav columns #}}
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16">

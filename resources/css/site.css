@@ -39,6 +39,15 @@
 @theme {
     --font-sans: 'Avenir', ui-sans-serif, system-ui, sans-serif;
 
+    /* Global page margin. The thin gutter content sits against; edge-bleed rows
+       run past it to the screen edge. Exposed as gutter spacing utilities
+       (px-gutter, pl-gutter, pb-gutter, and so on). */
+    --spacing-gutter: 25px;
+
+    /* Global inner padding, applied only on rows that ask for it. Exposed as pad
+       spacing utilities (p-pad, pt-pad, pl-pad, and so on). */
+    --spacing-pad: 40px;
+
     /* Palette sampled from Figma. Refined further during section tasks.
        Featured panel node 24:352 is pure black. Page background is white. */
     --color-ink: #000000;

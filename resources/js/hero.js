@@ -31,6 +31,7 @@ export function initHero() {
         // Skip the scroll choreography: render the end state directly.
         // Zero the transform outright so the CSS translateY(-100%) can't keep the header hidden.
         gsap.set(header, { y: 0, yPercent: 0 })
+        header.style.setProperty('--nav-t', 1)
         gsap.set(sideItems, { opacity: 1 })
         gsap.set(headerLogo, { opacity: 1 })
         gsap.set(headings, { opacity: 1, y: 0 })

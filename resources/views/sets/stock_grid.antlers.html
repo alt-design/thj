@@ -10,7 +10,7 @@
             {{ /if }}
         </div>
 
-        {{# Carousel track. Static now; GSAP autoscroll is added in a later phase. #}}
+        {{# Carousel track. Autoscrolls on desktop via GSAP; native touch scroll below md. #}}
         <div class="min-w-0 overflow-x-auto pb-4 snap-x snap-mandatory md:overflow-hidden md:pb-0">
             <div class="flex gap-6" data-carousel="stock">
                 {{ if source == 'selected' }}

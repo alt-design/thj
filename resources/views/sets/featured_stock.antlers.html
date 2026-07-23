@@ -1,7 +1,7 @@
-<section class="grid grid-cols-1 md:grid-cols-[1fr_635px]" data-carousel="featured">
+<section class="grid grid-cols-1 md:grid-cols-[1fr_635px] md:h-[calc(100dvh-var(--nav-h))]" data-carousel="featured">
     {{# Left: the images stack in one cell; the incoming shot fades in on top of
         the outgoing one, which stays solid beneath, so the page never shows through. #}}
-    <div class="grid aspect-[960/640] overflow-hidden">
+    <div class="grid aspect-[960/640] overflow-hidden md:aspect-auto md:h-full">
         {{ entries }}
             <div class="group [grid-area:1/1] overflow-hidden" data-featured-image style="opacity: {{ if first }}1{{ else }}0{{ /if }}">
                 {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="h-full w-full transform-gpu object-cover transition-transform duration-[650ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-[1.02]">{{ /feature_image }}

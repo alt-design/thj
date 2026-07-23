@@ -101,8 +101,8 @@ export function initHero() {
     // scrubbed, so a trailing spacer of length PIN_TAIL holds the timeline open for
     // the tail. Keep PIN_TRAVEL to preserve the travel-in feel; shrink PIN_TAIL to
     // cut redundant frozen scrolling once everything has settled.
-    const PIN_TRAVEL = 1.75
-    const PIN_TAIL = 0.55
+    const PIN_TRAVEL = 0.9
+    const PIN_TAIL = 0.45
     const TL_END = PIN_TRAVEL + PIN_TAIL
 
     // The headings rise a beat after the dock, leaving the rest of the tail as a

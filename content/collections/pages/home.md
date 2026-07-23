@@ -35,6 +35,8 @@ blocks:
     enabled: true
     entries:
       - be9c9a9f-7aa6-451b-bf1f-6587e5b89634
+      - e78ae8e0-69db-440c-87ed-0f53e38876aa
+      - d15ec584-1f91-4b8f-870f-dde6a27d0d3e
     background: placeholders/testimonial-bg.jpg
   -
     type: journal_carousel

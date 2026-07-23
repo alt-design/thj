@@ -14,7 +14,11 @@
     <div class="grid grid-cols-2 gap-4 md:hidden">
         {{ images }}
             <div class="overflow-hidden">
-                <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                {{ if index == 2 }}
+                    <video src="/assets/placeholders/THJ2.mp4" poster="{{ url }}" autoplay muted loop playsinline class="h-full w-full object-cover"></video>
+                {{ else }}
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                {{ /if }}
             </div>
         {{ /images }}
     </div>
@@ -37,11 +41,11 @@
                     <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 2 }}
-                <div class="absolute overflow-hidden" style="left: 39.44%; top: 60.54%; width: 26.06%; aspect-ratio: 302/246; z-index: 4" data-collage-item="3">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
+                <div class="absolute overflow-hidden" style="left: 39.44%; top: 60.54%; width: 34.40%; aspect-ratio: 1280/772; z-index: 4" data-collage-item="3">
+                    <video src="/assets/placeholders/THJ2.mp4" poster="{{ url }}" autoplay muted loop playsinline class="h-full w-full object-cover" data-collage-img></video>
                 </div>
             {{ elseif index == 3 }}
-                <div class="absolute overflow-hidden" style="left: 56.35%; top: 33.62%; width: 26.06%; aspect-ratio: 302/421; z-index: 2" data-collage-item="4">
+                <div class="absolute overflow-hidden" style="left: 56.35%; top: 16.81%; width: 26.06%; aspect-ratio: 302/421; z-index: 2" data-collage-item="4">
                     <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ /if }}

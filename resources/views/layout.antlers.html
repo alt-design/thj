@@ -7,7 +7,7 @@
     {{ alt_seo:meta }}
     {{ vite src="resources/css/site.css|resources/js/site.js" }}
 </head>
-<body class="bg-paper font-sans text-ink">
+<body class="bg-paper font-sans text-ink {{ blocks limit="1" }}{{ if type == "hero" }}has-hero-header{{ /if }}{{ /blocks }}">
     {{ partial:parts/header }}
 
     <main>

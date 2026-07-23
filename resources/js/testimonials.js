@@ -1,10 +1,49 @@
 import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Time each quote holds before advancing (ms) and the cross-fade duration (s).
 const INTERVAL = 6000
 const FADE = 0.8
 
+// How far the background drifts, as a share of its own height, while the panel
+// enters. The image is 135% of the panel height; keeping the shift just under
+// that 35% slack means the blurred backdrop always covers the panel edge to edge.
+const PARALLAX_SHIFT = 25
+
+// The blurred backdrop drifts up more slowly than the page while the panel is
+// scrolling into view, then holds still once the panel pins beneath the nav. The
+// tween is scrubbed to scroll position, so it plays in reverse on the way back up.
+function initTestimonialsParallax() {
+    const panel = document.querySelector('[data-testimonials-panel]')
+    const background = panel?.querySelector('[data-testimonials-bg]')
+    if (!background) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const navHeight = getComputedStyle(document.documentElement).getPropertyValue('--nav-h').trim() || '0px'
+
+    gsap.fromTo(
+        background,
+        { yPercent: -PARALLAX_SHIFT },
+        {
+            yPercent: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: panel,
+                start: 'top bottom',
+                end: `top top+=${navHeight}`,
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        },
+    )
+}
+
 export function initTestimonials() {
+    initTestimonialsParallax()
+
     const carousel = document.querySelector('[data-carousel="testimonials"]')
     if (!carousel) return
 

@@ -79,7 +79,7 @@ export function initHero() {
         scrollTrigger: {
             trigger: stage,
             start: 'top top',
-            end: '+=220%',
+            end: '+=320%',
             scrub: true,
             pin: true,
             anticipatePin: 1,
@@ -102,7 +102,10 @@ export function initHero() {
         .to(sideItems, { opacity: 1, ease: 'none', duration: 0.25 }, 0.6)
         .to(headerLogo, { opacity: 1, ease: 'none', duration: 0.15 }, 0.85)
         .to(logo, { opacity: 0, ease: 'none', duration: 0.15 }, 0.85)
-        .to(headings, { opacity: 1, y: 0, ease: 'power2.out', duration: 0.25 }, 0.75)
+        // Hold on the resolved nav (logo in at 1.0) before the heading arrives, so
+        // there is a beat of redundant scroll between the two. The heading then rises
+        // in from below as the closing beat.
+        .to(headings, { opacity: 1, y: 0, ease: 'power2.out', duration: 0.3 }, 1.25)
 
     // Stage B: as the hero scrolls away, cross-fade the nav from transparent to
     // solid white. One value, --nav-t, drives both background layers plus the

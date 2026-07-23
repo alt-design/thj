@@ -4,6 +4,7 @@ blueprint: stock
 title: '1958 Ferrari 250 GT LWB California Spyder'
 price: £POA
 excerpt: "One of just 50 LWB California Spyders ever produced and Ferrari 'Red Book' Classiche certified."
-feature_image: placeholders/stock-1.jpg
+feature_image: stock/california-spyder-front.jpg
+hover_image: stock/california-spyder-rear.jpg
 status_label: current
 ---

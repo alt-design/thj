@@ -23,6 +23,14 @@ tabs:
             field:
               type: assets
               display: 'Feature image'
+              instructions: 'Shown by default. Use the front three-quarter shot.'
+              max_files: 1
+              container: assets
+          - handle: hover_image
+            field:
+              type: assets
+              display: 'Hover image'
+              instructions: 'Revealed when the card is hovered. Use the rear three-quarter shot.'
               max_files: 1
               container: assets
           - handle: status_label

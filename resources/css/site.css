@@ -57,6 +57,21 @@
 }
 
 /*
+ * Height of the sticky site header, mirrored from its h-[72px] md:h-[104px]
+ * classes. Full-height sticky sections offset themselves by this so they sit
+ * flush beneath the nav rather than behind it.
+ */
+:root {
+    --nav-h: 72px;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --nav-h: 104px;
+    }
+}
+
+/*
  * The header's two background layers. They are inert (invisible) on normal pages,
  * where the header shows its own paper background. Over a hero they cross-fade,
  * driven by --nav-t (0 = over the video, 1 = solid white).
@@ -110,4 +125,14 @@ body.has-hero-header [data-site-header] button {
 
 body.has-hero-header [data-site-header] [data-header-logo] :is(path) {
     fill: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-t) * 100%));
+}
+
+/*
+ * The testimonials panel pins beneath the nav while the rows that follow scroll
+ * up and over it. Every following section is lifted above the pinned panel so it
+ * covers it cleanly and never lets the panel bleed through a later, opaque row.
+ */
+[data-testimonials-panel] ~ * {
+    position: relative;
+    z-index: 1;
 }

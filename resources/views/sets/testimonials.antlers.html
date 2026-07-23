@@ -1,8 +1,8 @@
-<section class="relative overflow-hidden py-20 md:py-32 text-paper">
-    {{ background }}<img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover blur-md">{{ /background }}
+<section data-testimonials-panel class="sticky top-[var(--nav-h)] z-0 flex items-center overflow-hidden min-h-[calc(100dvh-var(--nav-h))] py-16 md:py-24 text-paper">
+    {{ background }}<img src="{{ url }}" alt="" data-testimonials-bg class="absolute inset-x-0 top-0 h-[135%] w-full object-cover blur-md will-change-transform">{{ /background }}
     <div class="absolute inset-0 bg-ink/70"></div>
 
-    <div class="relative z-10 mx-auto max-w-3xl px-6" data-carousel="testimonials">
+    <div class="relative z-10 mx-auto w-full max-w-3xl px-6" data-carousel="testimonials">
         <div class="grid">
             {{ entries }}
                 <div class="[grid-area:1/1]" data-testimonial-slide style="opacity: {{ if first }}1{{ else }}0{{ /if }}">

@@ -1,5 +1,5 @@
 <section class="relative overflow-hidden py-20 md:py-32 text-paper">
-    {{ background }}<img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover">{{ /background }}
+    {{ background }}<img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover blur-md">{{ /background }}
     <div class="absolute inset-0 bg-ink/70"></div>
 
     <div class="relative z-10 mx-auto max-w-3xl px-6" data-carousel="testimonials">
@@ -13,10 +13,13 @@
                 </div>
             {{ /entries }}
         </div>
-        <div class="mt-12 flex justify-center gap-2" aria-hidden="true">
-            {{ entries }}
-                <span class="h-1.5 w-1.5 rounded-full {{ if first }}bg-paper{{ else }}bg-paper/40{{ /if }}" data-testimonial-dot></span>
-            {{ /entries }}
+        <div class="mt-12 flex justify-center gap-6">
+            <button type="button" class="text-lg leading-none" aria-label="Previous testimonial" data-testimonial-prev>
+                <span aria-hidden="true">&larr;</span>
+            </button>
+            <button type="button" class="text-lg leading-none" aria-label="Next testimonial" data-testimonial-next>
+                <span aria-hidden="true">&rarr;</span>
+            </button>
         </div>
     </div>
 </section>

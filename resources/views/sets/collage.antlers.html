@@ -19,30 +19,35 @@
         {{ /images }}
     </div>
 
-    {{# Desktop cluster — hidden below md #}}
-    <div class="relative mx-auto w-full max-w-[1160px] hidden md:block" style="aspect-ratio: 1160 / 755" data-collage>
+    {{# Desktop cluster — hidden below md. Geometry and stacking taken from the Figma
+       collage group (node 23:7): a 1159x821 content box with four overlapping images
+       and the crown on top. The z-index on each item reproduces the design's paint
+       order (building, man, showroom, silver car, crown) so the silver car overlaps
+       the man rather than the other way round. #}}
+    <div class="relative mx-auto w-full max-w-[1159px] hidden md:block" style="aspect-ratio: 1159 / 821" data-collage>
+        {{# The loop `index` is 0-based, so the first image (building) is index 0.
+           The data-collage-item labels stay 1..4 as fixed slot ids for collage.js. #}}
         {{ images }}
-            {{ if index == 1 }}
-                <div class="absolute overflow-hidden" style="left: 0%; top: 32%; width: 50%; aspect-ratio: 583/515" data-collage-item="1">
+            {{ if index == 0 }}
+                <div class="absolute overflow-hidden" style="left: 0%; top: 37.27%; width: 50.31%; aspect-ratio: 583/515; z-index: 1" data-collage-item="1">
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
+                </div>
+            {{ elseif index == 1 }}
+                <div class="absolute overflow-hidden" style="left: 15.10%; top: 0%; width: 31.41%; aspect-ratio: 364/468; z-index: 3" data-collage-item="2">
                     <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 2 }}
-                <div class="absolute overflow-hidden" style="left: 15%; top: 0%; width: 31%; aspect-ratio: 364/468" data-collage-item="2">
+                <div class="absolute overflow-hidden" style="left: 39.44%; top: 60.54%; width: 26.06%; aspect-ratio: 302/246; z-index: 4" data-collage-item="3">
                     <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 3 }}
-                <div class="absolute overflow-hidden" style="left: 39%; top: 57%; width: 26%; aspect-ratio: 302/246" data-collage-item="3">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
-                </div>
-            {{ elseif index == 4 }}
-                <div class="absolute overflow-hidden" style="left: 56%; top: 28%; width: 26%; aspect-ratio: 302/421" data-collage-item="4">
+                <div class="absolute overflow-hidden" style="left: 56.35%; top: 33.62%; width: 26.06%; aspect-ratio: 302/421; z-index: 2" data-collage-item="4">
                     <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ /if }}
         {{ /images }}
 
-        {{# Crown sits above all images via z-10. #}}
-        <div class="absolute z-10 text-ink" style="left: 71%; top: 10%; width: 29%" data-collage-crown>
+        <div class="absolute text-ink" style="left: 70.77%; top: 4.26%; width: 29.23%; z-index: 5" data-collage-crown>
             {{ svg src="crown" class="w-full h-auto" }}
         </div>
     </div>

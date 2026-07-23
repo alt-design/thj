@@ -1,7 +1,9 @@
 <footer>
 
-    {{# Part A: dark band with repeating diamond texture #}}
-    <div style="background-color: #1f1f1f; background-image: url('/assets/footer_pattern.png'); background-repeat: repeat; background-size: 40px 40px;">
+    {{# Part A: dark band with repeating diamond texture. Pattern size is driven by
+        --footer-pattern-size so footer.js can zoom the texture out on scroll; the
+        40px default keeps the resting layout correct without JS. #}}
+    <div data-footer-pattern style="background-color: #1f1f1f; background-image: url('/assets/footer_pattern.png'); background-repeat: repeat; --footer-pattern-size: 40px; background-size: var(--footer-pattern-size) var(--footer-pattern-size);">
 
         {{# Wordmark held off the top and left by the global padding #}}
         <div class="pt-pad pl-pad">

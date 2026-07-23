@@ -20,29 +20,29 @@
     </div>
 
     {{# Desktop cluster — hidden below md #}}
-    <div class="relative mx-auto w-full max-w-[1160px] hidden md:block" style="aspect-ratio: 1160 / 755">
+    <div class="relative mx-auto w-full max-w-[1160px] hidden md:block" style="aspect-ratio: 1160 / 755" data-collage>
         {{ images }}
             {{ if index == 1 }}
-                <div class="absolute overflow-hidden" style="left: 0%; top: 32%; width: 50%; aspect-ratio: 583/515">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                <div class="absolute overflow-hidden" style="left: 0%; top: 32%; width: 50%; aspect-ratio: 583/515" data-collage-item="1">
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 2 }}
-                <div class="absolute overflow-hidden" style="left: 15%; top: 0%; width: 31%; aspect-ratio: 364/468">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                <div class="absolute overflow-hidden" style="left: 15%; top: 0%; width: 31%; aspect-ratio: 364/468" data-collage-item="2">
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 3 }}
-                <div class="absolute overflow-hidden" style="left: 39%; top: 57%; width: 26%; aspect-ratio: 302/246">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                <div class="absolute overflow-hidden" style="left: 39%; top: 57%; width: 26%; aspect-ratio: 302/246" data-collage-item="3">
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ elseif index == 4 }}
-                <div class="absolute overflow-hidden" style="left: 56%; top: 28%; width: 26%; aspect-ratio: 302/421">
-                    <img src="{{ url }}" alt="" class="h-full w-full object-cover">
+                <div class="absolute overflow-hidden" style="left: 56%; top: 28%; width: 26%; aspect-ratio: 302/421" data-collage-item="4">
+                    <img src="{{ url }}" alt="" class="h-full w-full object-cover" data-collage-img>
                 </div>
             {{ /if }}
         {{ /images }}
 
         {{# Crown sits above all images via z-10. #}}
-        <div class="absolute z-10 text-ink" style="left: 71%; top: 10%; width: 29%">
+        <div class="absolute z-10 text-ink" style="left: 71%; top: 10%; width: 29%" data-collage-crown>
             {{ svg src="crown" class="w-full h-auto" }}
         </div>
     </div>

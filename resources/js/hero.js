@@ -95,15 +95,54 @@ export function initHero() {
     computeTarget()
     ScrollTrigger.addEventListener('refreshInit', computeTarget)
 
+    // Pin budget, in viewport heights. The shield travels and docks across
+    // PIN_TRAVEL; PIN_TAIL is the short pinned run after the dock that lets the
+    // heading beat play and hold before the hero unpins. Only the travel is
+    // scrubbed, so a trailing spacer of length PIN_TAIL holds the timeline open for
+    // the tail. Keep PIN_TRAVEL to preserve the travel-in feel; shrink PIN_TAIL to
+    // cut redundant frozen scrolling once everything has settled.
+    const PIN_TRAVEL = 1.75
+    const PIN_TAIL = 0.55
+    const TL_END = PIN_TRAVEL + PIN_TAIL
+
+    // The headings rise a beat after the dock, leaving the rest of the tail as a
+    // brief hold before the pin releases.
+    const HEADINGS_START = PIN_TRAVEL + 0.2
+
+    // The dock cross-fade and heading rise are fired once, forward-only, from the
+    // scroll progress instead of being tweened by the scrubbed timeline. As one-shot
+    // tweens they cannot play backwards, so they stay settled when scrolling back up.
+    let docked = false
+    let headingsIn = false
+
+    const dock = () => {
+        if (docked) return
+        docked = true
+        // The travelling shield fades out as the header's own shield (the full
+        // lockup overlaid on the wordmark) fades in, so it reads as settling in.
+        gsap.to(logo, { opacity: 0, duration: 0.25, ease: 'sine.out', overwrite: 'auto' })
+        gsap.to(headerShield, { opacity: 1, duration: 0.25, ease: 'sine.out' })
+    }
+
+    const raiseHeadings = () => {
+        if (headingsIn) return
+        headingsIn = true
+        gsap.to(headings, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' })
+    }
+
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: stage,
             start: 'top top',
-            end: '+=268%',
+            end: `+=${TL_END * 100}%`,
             scrub: true,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            onUpdate: (self) => {
+                if (self.progress >= PIN_TRAVEL / TL_END) dock()
+                if (self.progress >= HEADINGS_START / TL_END) raiseHeadings()
+            },
         },
     })
 
@@ -114,18 +153,10 @@ export function initHero() {
             y: () => target.y,
             scale: () => target.scale,
             ease: 'none',
-            duration: 0.85,
+            duration: PIN_TRAVEL,
         },
         0,
-    )
-        // At the dock, the travelling shield fades out as the header's own shield
-        // (the full lockup overlaid on the wordmark) fades in over the same beat, so
-        // the shield reads as settling into the logo.
-        .to(logo, { opacity: 0, ease: 'none', duration: 0.15 }, 0.85)
-        .to(headerShield, { opacity: 1, ease: 'none', duration: 0.15 }, 0.85)
-        // The heading rises in from below as the closing beat, starting the moment
-        // the nav resolves.
-        .to(headings, { opacity: 1, y: 0, ease: 'power2.out', duration: 0.3 }, 1.0)
+    ).to({}, { duration: PIN_TAIL }, PIN_TRAVEL)
 
     // Stage B: as the hero scrolls away, cross-fade the nav from transparent to
     // solid white. One value, --nav-t, drives both background layers plus the

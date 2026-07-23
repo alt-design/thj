@@ -1,6 +1,7 @@
-<article class="group w-[750px] shrink-0 snap-start">
-    <div class="aspect-[583/515] overflow-hidden bg-cream">
-        {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="h-full w-full transform-gpu object-cover transition-transform duration-[650ms] ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:scale-105">{{ /feature_image }}
+<article class="group w-[750px] shrink-0 snap-start cursor-pointer">
+    <div class="relative aspect-[583/515] overflow-hidden bg-cream">
+        {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="absolute inset-0 h-full w-full object-cover{{ if hover_image }} group-hover:opacity-0{{ /if }}">{{ /feature_image }}
+        {{ if hover_image }}{{ hover_image }}<img src="{{ url }}" alt="{{ title }}" class="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100">{{ /hover_image }}{{ /if }}
     </div>
     <h3 class="mt-5 text-[18px] font-black uppercase leading-tight">{{ title }}</h3>
     <p class="mt-2 max-w-[90%] text-[12px] leading-snug text-ink/60">{{ excerpt }}</p>

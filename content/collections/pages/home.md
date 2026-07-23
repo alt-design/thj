@@ -15,7 +15,11 @@ blocks:
     enabled: true
     title: 'Current Stock'
     intro: 'We stock only the finest, hand-selected sports, classic and luxury cars.'
-    source: recent
+    source: selected
+    entries:
+      - 32e76470-dfd9-416c-a668-b9aecce80797
+      - f0fe7c93-be0a-4f5d-856d-212234a137d1
+      - 87e71757-2560-4770-a06b-06c24ad71f2c
   -
     type: featured_stock
     enabled: true

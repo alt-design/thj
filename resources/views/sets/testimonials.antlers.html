@@ -3,9 +3,9 @@
     <div class="absolute inset-0 bg-ink/70"></div>
 
     <div class="relative z-10 mx-auto max-w-3xl px-6" data-carousel="testimonials">
-        <div class="relative min-h-[320px] md:min-h-[280px]">
+        <div class="grid">
             {{ entries }}
-                <div class="absolute inset-0" data-testimonial-slide style="opacity: {{ if first }}1{{ else }}0{{ /if }}">
+                <div class="[grid-area:1/1]" data-testimonial-slide style="opacity: {{ if first }}1{{ else }}0{{ /if }}">
                     <span class="block h-16 font-black leading-none text-paper/80 text-[120px]" aria-hidden="true">&ldquo;</span>
                     <blockquote class="text-[20px] md:text-[26px] font-medium leading-relaxed">{{ quote }}</blockquote>
                     <p class="mt-8 text-[14px] font-bold">{{ author_name }}</p>

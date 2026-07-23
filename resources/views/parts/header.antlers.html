@@ -3,7 +3,7 @@
     <div data-header-scrim aria-hidden="true"></div>
     <div data-header-solid aria-hidden="true"></div>
 
-    <div class="relative flex items-center max-w-[1512px] mx-auto px-6 h-20 md:h-28">
+    <div class="relative flex items-end px-gutter pb-[calc(var(--spacing-gutter)/2)] h-[72px] md:h-[104px]">
 
         {{# Left nav #}}
         <nav data-header-side class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
@@ -16,8 +16,8 @@
         </nav>
 
         {{# Centred monogram lockup #}}
-        <a data-header-logo href="/" aria-label="Tom Hartley Jnr home" class="absolute left-1/2 -translate-x-1/2">
-            {{ svg src="monogram" class="h-12 md:h-16 w-auto" }}
+        <a data-header-logo href="/" aria-label="Tom Hartley Jnr home" class="absolute left-1/2 bottom-[calc(var(--spacing-gutter)/2+4px)] -translate-x-1/2">
+            {{ svg src="monogram" class="h-[52px] md:h-[68px] w-auto" }}
         </a>
 
         {{# Right: menu toggle (stub — panel deferred) #}}
@@ -30,7 +30,7 @@
                 class="flex items-center gap-2.5 text-[13px] font-black uppercase tracking-widest text-ink hover:opacity-60 transition-opacity"
             >
                 <span>Menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16" fill="none" width="22" height="16" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 16" fill="none" width="22" height="16" aria-hidden="true" class="-translate-y-[3px]">
                     <line x1="0" y1="1" x2="22" y2="1" stroke="currentColor" stroke-width="1.5"/>
                     <line x1="0" y1="8" x2="22" y2="8" stroke="currentColor" stroke-width="1.5"/>
                     <line x1="0" y1="15" x2="22" y2="15" stroke="currentColor" stroke-width="1.5"/>

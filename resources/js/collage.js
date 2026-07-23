@@ -8,14 +8,14 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 // driftDur   = base loop duration (s) for that image's ambient tween.
 // driftDelay = start offset (s) so the four loops never sync up.
 const CONFIG = {
-    1: { parallax: 240, driftX: 10, driftY: 13, driftRot: 0.9, driftDur: 8,  driftDelay: 0 },
-    2: { parallax: 140, driftX: 13, driftY: 9,  driftRot: 1,   driftDur: 10, driftDelay: 1.5 },
-    3: { parallax: 200, driftX: 9,  driftY: 12, driftRot: 0.8, driftDur: 7,  driftDelay: 0.7 },
-    4: { parallax: 170, driftX: 11, driftY: 10, driftRot: 0.9, driftDur: 9,  driftDelay: 2.2 },
+    1: { parallax: 240, driftX: 6, driftY: 8, driftRot: 0.6, driftDur: 9,  driftDelay: 0 },
+    2: { parallax: 140, driftX: 8, driftY: 5, driftRot: 0.8, driftDur: 11, driftDelay: 1.5 },
+    3: { parallax: 200, driftX: 5, driftY: 7, driftRot: 0.5, driftDur: 8,  driftDelay: 0.7 },
+    4: { parallax: 170, driftX: 7, driftY: 6, driftRot: 0.7, driftDur: 10, driftDelay: 2.2 },
 }
 
 // Static overhang so ambient drift never exposes an edge inside overflow-hidden.
-const IMG_SCALE = 1.1
+const IMG_SCALE = 1.06
 
 export function initCollage() {
     const container = document.querySelector('[data-collage]')

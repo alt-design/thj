@@ -15,9 +15,9 @@
         <div class="grid">
             {{ entries }}
                 <div class="w-4/5 [grid-area:1/1]" data-featured-text style="opacity: {{ if first }}1{{ else }}0{{ /if }}">
-                    <p class="text-[11px] font-medium uppercase tracking-[0.15em] text-paper/60">Previously sold</p>
-                    <h2 class="mt-5 text-[24px] font-black uppercase leading-tight">{{ title }}</h2>
-                    <p class="mt-5 text-[14px] leading-relaxed text-paper/70">{{ excerpt }}</p>
+                    <p class="text-[12px] font-black uppercase text-paper">Previously sold</p>
+                    <h2 class="mt-5 text-[23px] font-bold uppercase leading-normal">{{ title }}</h2>
+                    <p class="mt-5 text-[14px] font-normal leading-normal text-paper/80">{{ excerpt }}</p>
                 </div>
             {{ /entries }}
         </div>
@@ -25,7 +25,7 @@
         <div class="mt-10 flex items-end justify-between">
             <div class="grid">
                 {{ entries }}
-                    <a href="{{ url }}" class="inline-block justify-self-start border-b border-paper pb-1 text-[14px] font-black uppercase tracking-wide [grid-area:1/1] {{ if first }}{{ else }}pointer-events-none{{ /if }}" data-featured-link style="opacity: {{ if first }}1{{ else }}0{{ /if }}">View</a>
+                    <a href="{{ url }}" class="inline-block justify-self-start border-b border-paper pb-1 text-[16px] font-bold uppercase leading-normal [grid-area:1/1] {{ if first }}{{ else }}pointer-events-none{{ /if }}" data-featured-link style="opacity: {{ if first }}1{{ else }}0{{ /if }}">View</a>
                 {{ /entries }}
             </div>
             <span class="flex items-center gap-4">

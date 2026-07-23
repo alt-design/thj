@@ -12,6 +12,22 @@ export function initHero() {
     const stage = document.querySelector('[data-hero-stage]')
     if (!stage) return
 
+    // The stage starts on a black background with the video hidden. Fade the
+    // video in once it has buffered enough to play, so the load reads as an
+    // intentional black hold rather than an empty frame while it downloads.
+    const video = stage.querySelector('[data-hero-video]')
+
+    if (video) {
+        const revealVideo = () =>
+            gsap.to(video, { opacity: 1, duration: 1, ease: 'sine.inOut' })
+
+        if (video.readyState >= 3) {
+            revealVideo()
+        } else {
+            video.addEventListener('canplay', revealVideo, { once: true })
+        }
+    }
+
     const section = document.querySelector('[data-hero]')
 
     const header = document.querySelector('[data-site-header]')

@@ -2,7 +2,7 @@
 
 Living specification and decision log for the Tom Hartley Jnr website rebuild. Other agents should read this before working on the project and update it whenever a decision changes. Keep it current.
 
-Last updated: 2026-07-22.
+Last updated: 2026-07-23.
 
 ## 1. Overview
 
@@ -184,3 +184,15 @@ Recorded during the homepage skeleton build (2026-07-22). These resolve points w
 - Carousels/sliders are static tracks with `data-carousel` hooks; no GSAP motion yet.
 - The header "menu" is an accessible stub button with no panel.
 - The newsletter signup is static markup (disabled input); it becomes a Livewire island later.
+
+## 13. Animation phases
+
+Animation (spec decision 5: GSAP is the single library) is layered onto the static skeleton in discrete phases. Each phase has its own design note and implementation plan under `docs/superpowers/`. This index records the sequence and current state so it is easy to find.
+
+| Phase | State | Design note | Plan |
+|-------|-------|-------------|------|
+| Hero scroll intro (pinned video, nav roll in, shield dock) | Built | `specs/2026-07-23-hero-scroll-intro-design.md` | `plans/2026-07-23-hero-scroll-intro.md` |
+| Hero heading reveal and nav solidify | Built | `specs/2026-07-23-hero-heading-reveal-and-nav-solidify-design.md` | `plans/2026-07-23-hero-heading-reveal-and-nav-solidify.md` |
+| Collage layered parallax and ambient float | Designed, ready to build | `specs/2026-07-23-collage-parallax-design.md` | `plans/2026-07-23-collage-parallax.md` |
+
+New scroll effects follow the pattern set by the hero: a small ES module under `resources/js/` exporting an `init*` function, imported and called from `resources/js/site.js`, selecting elements via `data-*` hooks, and guarding on `prefers-reduced-motion` (skip the motion, render the resting state).

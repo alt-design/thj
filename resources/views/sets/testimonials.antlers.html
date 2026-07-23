@@ -2,18 +2,21 @@
     {{ background }}<img src="{{ url }}" alt="" class="absolute inset-0 h-full w-full object-cover">{{ /background }}
     <div class="absolute inset-0 bg-ink/70"></div>
 
-    {{# Slider track. Static now; one slide shown. GSAP slider wired later. #}}
     <div class="relative z-10 mx-auto max-w-3xl px-6" data-carousel="testimonials">
-        {{ entries limit="1" }}
-            <span class="block h-16 font-black leading-none text-paper/80 text-[120px]" aria-hidden="true">&ldquo;</span>
-            <blockquote class="text-[20px] md:text-[26px] font-medium leading-relaxed">{{ quote }}</blockquote>
-            <p class="mt-8 text-[14px] font-bold">{{ author_name }}</p>
-            <p class="text-[13px] text-paper/70">{{ author_role }}</p>
-        {{ /entries }}
+        <div class="relative min-h-[320px] md:min-h-[280px]">
+            {{ entries }}
+                <div class="absolute inset-0" data-testimonial-slide style="opacity: {{ if first }}1{{ else }}0{{ /if }}">
+                    <span class="block h-16 font-black leading-none text-paper/80 text-[120px]" aria-hidden="true">&ldquo;</span>
+                    <blockquote class="text-[20px] md:text-[26px] font-medium leading-relaxed">{{ quote }}</blockquote>
+                    <p class="mt-8 text-[14px] font-bold">{{ author_name }}</p>
+                    <p class="text-[13px] text-paper/70">{{ author_role }}</p>
+                </div>
+            {{ /entries }}
+        </div>
         <div class="mt-12 flex justify-center gap-2" aria-hidden="true">
-            <span class="h-1.5 w-1.5 rounded-full bg-paper"></span>
-            <span class="h-1.5 w-1.5 rounded-full bg-paper/40"></span>
-            <span class="h-1.5 w-1.5 rounded-full bg-paper/40"></span>
+            {{ entries }}
+                <span class="h-1.5 w-1.5 rounded-full {{ if first }}bg-paper{{ else }}bg-paper/40{{ /if }}" data-testimonial-dot></span>
+            {{ /entries }}
         </div>
     </div>
 </section>

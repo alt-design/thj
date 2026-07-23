@@ -12,6 +12,8 @@ export function initHero() {
     const stage = document.querySelector('[data-hero-stage]')
     if (!stage) return
 
+    const section = document.querySelector('[data-hero]')
+
     const header = document.querySelector('[data-site-header]')
     const headerLogo = header?.querySelector('[data-header-logo]')
     const sideItems = header?.querySelectorAll('[data-header-side]')
@@ -81,8 +83,6 @@ export function initHero() {
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
-            onLeave: () => document.body.classList.remove('has-hero-header'),
-            onEnterBack: () => document.body.classList.add('has-hero-header'),
         },
     })
 
@@ -102,4 +102,22 @@ export function initHero() {
         .to(headerLogo, { opacity: 1, ease: 'none', duration: 0.15 }, 0.85)
         .to(logo, { opacity: 0, ease: 'none', duration: 0.15 }, 0.85)
         .to(headings, { opacity: 1, y: 0, ease: 'power2.out', duration: 0.25 }, 0.75)
+
+    // Stage B: as the hero scrolls away, cross-fade the nav from transparent to
+    // solid white. One value, --nav-t, drives both background layers plus the
+    // text and logo colour (see site.css). Scrubbed, so it reverses on scroll up.
+    const nav = { t: 0 }
+
+    gsap.to(nav, {
+        t: 1,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: section,
+            start: 'bottom bottom',
+            end: 'bottom 30%',
+            scrub: true,
+            invalidateOnRefresh: true,
+        },
+        onUpdate: () => header.style.setProperty('--nav-t', nav.t),
+    })
 }

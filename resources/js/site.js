@@ -3,7 +3,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import { initHero } from './hero.js'
 import { initCollage } from './collage.js'
 import { initCarousel } from './carousel.js'
-import { initStock } from './stock.js'
 import { initTestimonials } from './testimonials.js'
 import { initFeatured } from './featured.js'
 import { initFooter } from './footer.js'
@@ -13,7 +12,7 @@ window.gsap = gsap
 
 initHero()
 initCollage()
-initStock()
+initCarousel('[data-carousel="stock"]')
 initCarousel('[data-carousel="journal"]')
 initTestimonials()
 initFeatured()

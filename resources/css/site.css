@@ -142,18 +142,6 @@ body.has-hero-header [data-site-header] [data-header-logo] :is(path) {
 }
 
 /*
- * The current stock track is a native horizontal scroller stepped by its arrows,
- * so the scrollbar itself is redundant and would sit under the row on desktop.
- */
-[data-stock-viewport] {
-    scrollbar-width: none;
-}
-
-[data-stock-viewport]::-webkit-scrollbar {
-    display: none;
-}
-
-/*
  * The testimonials panel pins beneath the nav while the rows that follow scroll
  * up and over it. Every following section is lifted above the pinned panel so it
  * covers it cleanly and never lets the panel bleed through a later, opaque row.

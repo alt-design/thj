@@ -1,4 +1,6 @@
-<article class="group w-[750px] shrink-0 snap-start cursor-pointer">
+{{# Card is the Figma's 583px (node 24:397), which puts two full cards in view at
+    the 1512 design width and keeps the row from running past the viewport. #}}
+<article class="group w-[583px] shrink-0 snap-start cursor-pointer">
     <div class="relative aspect-[583/515] overflow-hidden bg-cream">
         {{ feature_image }}<img src="{{ url }}" alt="{{ title }}" class="absolute inset-0 h-full w-full object-cover{{ if hover_image }} group-hover:opacity-0{{ /if }}">{{ /feature_image }}
         {{ if hover_image }}{{ hover_image }}<img src="{{ url }}" alt="{{ title }}" class="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100">{{ /hover_image }}{{ /if }}

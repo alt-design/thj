@@ -1,4 +1,6 @@
-<section class="grid grid-cols-1 md:grid-cols-[1fr_635px] md:h-[calc(100dvh-var(--nav-h))]" data-carousel="featured">
+{{# Row height is the Figma's 640px (node 24:404 on the 1512 frame), not the
+    viewport, so it stays the designed band on every screen size. #}}
+<section class="grid grid-cols-1 md:grid-cols-[1fr_635px] md:h-[640px]" data-carousel="featured">
     {{# Left: the images stack in one cell; the incoming shot fades in on top of
         the outgoing one, which stays solid beneath, so the page never shows through. #}}
     <div class="grid aspect-[960/640] overflow-hidden md:aspect-auto md:h-full">

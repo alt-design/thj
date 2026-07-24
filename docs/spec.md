@@ -80,7 +80,7 @@ Top to bottom on the homepage. Each maps to `resources/views/sets/<handle>.antle
 | # | Handle | Description | Editable fields | Collection | Behaviour (later phase) |
 |---|--------|-------------|-----------------|------------|-------------------------|
 | 1 | `hero` | Full bleed background video (design uses a 3840x2160 clip) with a centred display heading in two lines | heading 1, heading 2, background video or image | none | Video background |
-| 2 | `stock_grid` | "Current Stock" title, intro line, "view all" link, arrows, and a row of car cards (image, title, price, blurb, link) | title, intro, link, source toggle (select specific stock, or show all recent first) | `stock` | Carousel stepped by arrows, no autoscroll, images fade in |
+| 2 | `stock_grid` | "Current Stock" title, intro line, "view all" link, and a row of car cards (image, title, price, blurb, link) | title, intro, link, source toggle (select specific stock, or show all recent first) | `stock` | Carousel, autoscroll, images fade in |
 | 3 | `featured_stock` | Large image on the left, dark detail panel on the right ("Previously Sold" label, title, description, "view" link) | select from stock (current and previously sold) | `stock` | Slider, no autoscroll, image fades in |
 | 4 | `collage` | Image collage with the large TH monogram (global) and the "over 25 years of experience..." brand statement plus an "about us" link | text, images, link | none | Image animation |
 | 5 | `testimonials` | Large quote over a full bleed background image, with author name and role | select testimonials, background image | `testimonials` | Slider |
@@ -191,7 +191,7 @@ Recorded during the homepage skeleton build (2026-07-22). These resolve points w
 
 - **Avenir weights were mapped by filename order, which was wrong.** `372EB5_1_0` is Medium and `372EB5_2_0` is Book, so the kit was serving Medium as body copy and Book (the lightest face) wherever the design asks for Medium — the testimonial quote most visibly. Faces are now mapped from each font's internal name (see section 7). Body copy is a shade lighter as a result, which is the design's Roman/Book.
 - **Row heights come from the Figma, not the viewport.** The featured stock ("Previously Sold") row is the design's 640px band and the testimonials panel its 778px band, rather than `100dvh`. Both ballooned on tall screens when tied to the viewport. The testimonials value is a `min-height` so a long quote grows the panel instead of clipping.
-- **Current stock is visitor driven.** The autoscroll is gone; the track is a native horizontal scroller stepped by arrows in the left column (`resources/js/stock.js`), matching the featured row's arrows. The journal row keeps its autoscroll.
+- **Current stock keeps its autoscroll.** It was briefly replaced with a track stepped by arrows in the left column, then reverted the same day at the client's request: the continuous drift is the wanted behaviour. Both stock and journal autoscroll via `initCarousel`.
 - **The nav strip resolves off the video's bottom edge.** The transparent-to-white cross-fade is timed to finish just as the last of the hero video passes under the header, rather than part way up the viewport. Nav text and logo cross to ink ahead of the panel (`--nav-ink`) so they stay legible mid-fade.
 - **The hero shield docks in half the scroll distance** (`PIN_TRAVEL` 0.9 → 0.45).
 

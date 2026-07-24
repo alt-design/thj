@@ -8,20 +8,10 @@
             {{ else }}
                 <a href="/current-stock" class="mt-[94px] inline-block border-b border-ink pb-1 text-[16px] font-bold uppercase leading-normal">View all</a>
             {{ /if }}
-
-            {{# Carousel controls, matching the arrows on the featured stock row. #}}
-            <span class="mt-10 flex items-center gap-4">
-                <button type="button" class="text-lg leading-none cursor-pointer transition-opacity disabled:opacity-30" aria-label="Previous cars" data-stock-prev>
-                    <span aria-hidden="true">&larr;</span>
-                </button>
-                <button type="button" class="text-lg leading-none cursor-pointer transition-opacity disabled:opacity-30" aria-label="Next cars" data-stock-next>
-                    <span aria-hidden="true">&rarr;</span>
-                </button>
-            </span>
         </div>
 
-        {{# Carousel track. Stepped by the arrows above; native touch scroll below md. #}}
-        <div class="min-w-0 overflow-x-auto pb-4 snap-x snap-mandatory md:pb-0" data-stock-viewport>
+        {{# Carousel track. Autoscrolls on desktop via GSAP; native touch scroll below md. #}}
+        <div class="min-w-0 overflow-x-auto pb-4 snap-x snap-mandatory md:overflow-hidden md:pb-0">
             <div class="flex gap-6" data-carousel="stock">
                 {{ if source == 'selected' }}
                     {{ entries }}{{ partial:parts/stock_card }}{{ /entries }}

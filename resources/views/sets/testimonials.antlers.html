@@ -1,4 +1,7 @@
-<section data-testimonials-panel class="sticky top-[var(--nav-h)] z-0 flex items-center overflow-hidden min-h-[calc(100dvh-var(--nav-h))] py-16 md:py-24 text-paper">
+{{# Panel height is the Figma's 778px band (node 24:351 on the 1512 frame) rather
+    than the full viewport, so it stays the designed proportion on tall screens.
+    A min-height, so a long quote grows the panel instead of being clipped. #}}
+<section data-testimonials-panel class="sticky top-[var(--nav-h)] z-0 flex items-center overflow-hidden min-h-[520px] md:min-h-[778px] py-16 md:py-24 text-paper">
     {{ background }}<img src="{{ url }}" alt="" data-testimonials-bg class="absolute inset-x-0 top-0 h-[135%] w-full object-cover blur-md will-change-transform">{{ /background }}
     <div class="absolute inset-0 bg-ink/50"></div>
 

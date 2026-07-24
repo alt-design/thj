@@ -2,7 +2,7 @@
 
 Living specification and decision log for the Tom Hartley Jnr website rebuild. Other agents should read this before working on the project and update it whenever a decision changes. Keep it current.
 
-Last updated: 2026-07-23.
+Last updated: 2026-07-24.
 
 ## 1. Overview
 
@@ -80,7 +80,7 @@ Top to bottom on the homepage. Each maps to `resources/views/sets/<handle>.antle
 | # | Handle | Description | Editable fields | Collection | Behaviour (later phase) |
 |---|--------|-------------|-----------------|------------|-------------------------|
 | 1 | `hero` | Full bleed background video (design uses a 3840x2160 clip) with a centred display heading in two lines | heading 1, heading 2, background video or image | none | Video background |
-| 2 | `stock_grid` | "Current Stock" title, intro line, "view all" link, and a row of three car cards (image, title, price, blurb, link) | title, intro, link, source toggle (select specific stock, or show all recent first) | `stock` | Carousel, autoscroll, images fade in |
+| 2 | `stock_grid` | "Current Stock" title, intro line, "view all" link, arrows, and a row of car cards (image, title, price, blurb, link) | title, intro, link, source toggle (select specific stock, or show all recent first) | `stock` | Carousel stepped by arrows, no autoscroll, images fade in |
 | 3 | `featured_stock` | Large image on the left, dark detail panel on the right ("Previously Sold" label, title, description, "view" link) | select from stock (current and previously sold) | `stock` | Slider, no autoscroll, image fades in |
 | 4 | `collage` | Image collage with the large TH monogram (global) and the "over 25 years of experience..." brand statement plus an "about us" link | text, images, link | none | Image animation |
 | 5 | `testimonials` | Large quote over a full bleed background image, with author name and role | select testimonials, background image | `testimonials` | Slider |
@@ -92,12 +92,14 @@ The whole design is set in **Avenir** (weights 400, 500, 700, 900). This is a li
 
 Files are in the project `fonts/` folder (`woff2` only, which is sufficient for all modern browsers):
 
-| File | `font-weight` | Role |
-|------|---------------|------|
-| `372EB5_1_0.woff2` | 400 | body copy |
-| `372EB5_2_0.woff2` | 500 | medium (quotes, labels) |
-| `372EB5_0_0.woff2` | 700 | bold |
-| `372EB5_3_0.woff2` | 900 | hero and display headings |
+The filenames give no clue to their weight, so each was mapped from the font's own internal name (`name` table), not from the file order:
+
+| File | Face | `font-weight` | Role |
+|------|------|---------------|------|
+| `372EB5_2_0.woff2` | AvenirLTStd-Book | 400 | body copy |
+| `372EB5_1_0.woff2` | AvenirLTStd-Medium | 500 | medium (quotes, labels) |
+| `372EB5_0_0.woff2` | AvenirLTStd-Heavy | 700 | bold |
+| `372EB5_3_0.woff2` | AvenirLTStd-Black | 900 | hero and display headings |
 
 Setup plan:
 
@@ -184,6 +186,18 @@ Recorded during the homepage skeleton build (2026-07-22). These resolve points w
 - Carousels/sliders are static tracks with `data-carousel` hooks; no GSAP motion yet.
 - The header "menu" is an accessible stub button with no panel.
 - The newsletter signup is static markup (disabled input); it becomes a Livewire island later.
+
+### Changes from the second feedback round (2026-07-24)
+
+- **Avenir weights were mapped by filename order, which was wrong.** `372EB5_1_0` is Medium and `372EB5_2_0` is Book, so the kit was serving Medium as body copy and Book (the lightest face) wherever the design asks for Medium — the testimonial quote most visibly. Faces are now mapped from each font's internal name (see section 7). Body copy is a shade lighter as a result, which is the design's Roman/Book.
+- **Row heights come from the Figma, not the viewport.** The featured stock ("Previously Sold") row is the design's 640px band and the testimonials panel its 778px band, rather than `100dvh`. Both ballooned on tall screens when tied to the viewport. The testimonials value is a `min-height` so a long quote grows the panel instead of clipping.
+- **Current stock is visitor driven.** The autoscroll is gone; the track is a native horizontal scroller stepped by arrows in the left column (`resources/js/stock.js`), matching the featured row's arrows. The journal row keeps its autoscroll.
+- **The nav strip resolves off the video's bottom edge.** The transparent-to-white cross-fade is timed to finish just as the last of the hero video passes under the header, rather than part way up the viewport. Nav text and logo cross to ink ahead of the panel (`--nav-ink`) so they stay legible mid-fade.
+- **The hero shield docks in half the scroll distance** (`PIN_TRAVEL` 0.9 → 0.45).
+
+### Known issues, not addressed in this round
+
+- The footer overflows horizontally below about 400px wide (page `scrollWidth` 475 against a 375 viewport), which shows a horizontal scrollbar on a phone. Pre-existing, and mobile layouts are due a pass anyway once the designer supplies mobile frames.
 
 ## 13. Animation phases
 

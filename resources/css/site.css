@@ -4,22 +4,32 @@
 @source '../views';
 @source '../../content';
 
+/*
+ * The MyFonts kit filenames give no clue to their weight, so each face is mapped
+ * from the font's own internal name: 372EB5_2_0 is Book, _1_0 is Medium, _0_0 is
+ * Heavy and _3_0 is Black. Keep these paired as named — swapping Book and Medium
+ * makes font-medium render as body copy and the design's quotes lose their weight.
+ */
+
+/* AvenirLTStd-Book */
 @font-face {
     font-family: 'Avenir';
-    src: url('../fonts/372EB5_1_0.woff2') format('woff2');
+    src: url('../fonts/372EB5_2_0.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
+/* AvenirLTStd-Medium */
 @font-face {
     font-family: 'Avenir';
-    src: url('../fonts/372EB5_2_0.woff2') format('woff2');
+    src: url('../fonts/372EB5_1_0.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
+/* AvenirLTStd-Heavy */
 @font-face {
     font-family: 'Avenir';
     src: url('../fonts/372EB5_0_0.woff2') format('woff2');
@@ -28,6 +38,7 @@
     font-display: swap;
 }
 
+/* AvenirLTStd-Black */
 @font-face {
     font-family: 'Avenir';
     src: url('../fonts/372EB5_3_0.woff2') format('woff2');
@@ -102,6 +113,9 @@
  */
 body.has-hero-header [data-site-header] {
     --nav-t: 0;
+    /* Nav text and logo cross to ink ahead of the panel so they never sit mid-grey
+       on the mid-grey the half-faded white panel makes over the dark video. */
+    --nav-ink: min(1, calc(var(--nav-t) * 1.8));
     position: fixed;
     inset-inline: 0;
     top: 0;
@@ -120,11 +134,23 @@ body.has-hero-header [data-site-header] [data-header-solid] {
 
 body.has-hero-header [data-site-header] a,
 body.has-hero-header [data-site-header] button {
-    color: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-t) * 100%));
+    color: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-ink) * 100%));
 }
 
 body.has-hero-header [data-site-header] [data-header-logo] :is(path) {
-    fill: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-t) * 100%));
+    fill: color-mix(in srgb, var(--color-paper), var(--color-ink) calc(var(--nav-ink) * 100%));
+}
+
+/*
+ * The current stock track is a native horizontal scroller stepped by its arrows,
+ * so the scrollbar itself is redundant and would sit under the row on desktop.
+ */
+[data-stock-viewport] {
+    scrollbar-width: none;
+}
+
+[data-stock-viewport]::-webkit-scrollbar {
+    display: none;
 }
 
 /*

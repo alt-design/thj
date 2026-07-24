@@ -99,15 +99,15 @@ export function initHero() {
     // PIN_TRAVEL; PIN_TAIL is the short pinned run after the dock that lets the
     // heading beat play and hold before the hero unpins. Only the travel is
     // scrubbed, so a trailing spacer of length PIN_TAIL holds the timeline open for
-    // the tail. Keep PIN_TRAVEL to preserve the travel-in feel; shrink PIN_TAIL to
-    // cut redundant frozen scrolling once everything has settled.
-    const PIN_TRAVEL = 0.9
-    const PIN_TAIL = 0.45
+    // the tail. PIN_TRAVEL is how much scroll the shield takes to reach the header:
+    // shorten it to bring the icon in sooner, at the cost of the drawn-out travel.
+    const PIN_TRAVEL = 0.45
+    const PIN_TAIL = 0.35
     const TL_END = PIN_TRAVEL + PIN_TAIL
 
     // The headings rise a beat after the dock, leaving the rest of the tail as a
     // brief hold before the pin releases.
-    const HEADINGS_START = PIN_TRAVEL + 0.2
+    const HEADINGS_START = PIN_TRAVEL + 0.15
 
     // The dock cross-fade and heading rise are fired once, forward-only, from the
     // scroll progress instead of being tweened by the scrubbed timeline. As one-shot
@@ -158,9 +158,20 @@ export function initHero() {
         0,
     ).to({}, { duration: PIN_TAIL }, PIN_TRAVEL)
 
-    // Stage B: as the hero scrolls away, cross-fade the nav from transparent to
-    // solid white. One value, --nav-t, drives both background layers plus the
-    // text and logo colour (see site.css). Scrubbed, so it reverses on scroll up.
+    // Stage B: the nav stays transparent for as long as the video is on screen and
+    // only resolves to the solid white strip as the last of it passes under the
+    // header. One value, --nav-t, drives both background layers plus the text and
+    // logo colour (see site.css). Scrubbed, so it reverses on scroll up.
+    //
+    // The fade is timed off the video's bottom edge rather than the viewport: it
+    // runs over NAV_FADE px and finishes NAV_CLEARANCE px before that edge reaches
+    // the underside of the header, so the nav is never white text on white page.
+    const NAV_FADE = 300
+    const NAV_CLEARANCE = 40
+
+    const navHeight = () =>
+        parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0
+
     const nav = { t: 0 }
 
     gsap.to(nav, {
@@ -168,8 +179,8 @@ export function initHero() {
         ease: 'none',
         scrollTrigger: {
             trigger: section,
-            start: 'bottom bottom',
-            end: 'bottom 30%',
+            start: () => `bottom top+=${navHeight() + NAV_CLEARANCE + NAV_FADE}`,
+            end: () => `bottom top+=${navHeight() + NAV_CLEARANCE}`,
             scrub: true,
             invalidateOnRefresh: true,
         },

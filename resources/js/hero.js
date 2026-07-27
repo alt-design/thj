@@ -98,20 +98,22 @@ export function initHero() {
     // Pin budget, in viewport heights. PIN_HOLD keeps the shield centred over the
     // video for the first stretch of the pinned run, so it only sets off once you
     // are near the end of the hero rather than on the first notch of scroll. It
-    // then travels and docks across PIN_TRAVEL; PIN_TAIL is the short pinned run
-    // after the dock that lets the heading beat play and hold before the hero
-    // unpins. Only the travel is animated, so the hold and tail are empty spacers
-    // that keep the timeline open. Shorten PIN_HOLD to send the shield off sooner;
-    // shorten PIN_TRAVEL to make the journey brisker.
+    // then travels and docks across PIN_TRAVEL; PIN_TAIL is the brief pinned hold
+    // after the dock before the hero unpins. Only the travel is animated, so the
+    // hold and tail are empty spacers that keep the timeline open. Shorten PIN_HOLD
+    // to send the shield off sooner; shorten PIN_TRAVEL to make the journey brisker.
     const PIN_HOLD = 0.5
     const PIN_TRAVEL = 0.5
-    const PIN_TAIL = 0.3
+    const PIN_TAIL = 0.2
     const TRAVEL_END = PIN_HOLD + PIN_TRAVEL
     const TL_END = TRAVEL_END + PIN_TAIL
 
-    // The headings rise a beat after the dock, leaving the rest of the tail as a
-    // brief hold before the pin releases.
-    const HEADINGS_START = TRAVEL_END + 0.1
+    // The tagline rises almost as soon as the pin takes hold, so the first scroll
+    // gets an immediate response and the hold that follows is the tagline sitting
+    // over the video rather than a stretch of nothing. It has to lead the shield:
+    // held back until after the dock, the whole first half of the pin reads as dead
+    // scroll.
+    const HEADINGS_START = 0.05
 
     // The dock cross-fade and heading rise are fired once, forward-only, from the
     // scroll progress instead of being tweened by the scrubbed timeline. As one-shot

@@ -95,19 +95,23 @@ export function initHero() {
     computeTarget()
     ScrollTrigger.addEventListener('refreshInit', computeTarget)
 
-    // Pin budget, in viewport heights. The shield travels and docks across
-    // PIN_TRAVEL; PIN_TAIL is the short pinned run after the dock that lets the
-    // heading beat play and hold before the hero unpins. Only the travel is
-    // scrubbed, so a trailing spacer of length PIN_TAIL holds the timeline open for
-    // the tail. PIN_TRAVEL is how much scroll the shield takes to reach the header:
-    // shorten it to bring the icon in sooner, at the cost of the drawn-out travel.
-    const PIN_TRAVEL = 0.45
-    const PIN_TAIL = 0.35
-    const TL_END = PIN_TRAVEL + PIN_TAIL
+    // Pin budget, in viewport heights. PIN_HOLD keeps the shield centred over the
+    // video for the first stretch of the pinned run, so it only sets off once you
+    // are near the end of the hero rather than on the first notch of scroll. It
+    // then travels and docks across PIN_TRAVEL; PIN_TAIL is the short pinned run
+    // after the dock that lets the heading beat play and hold before the hero
+    // unpins. Only the travel is animated, so the hold and tail are empty spacers
+    // that keep the timeline open. Shorten PIN_HOLD to send the shield off sooner;
+    // shorten PIN_TRAVEL to make the journey brisker.
+    const PIN_HOLD = 0.5
+    const PIN_TRAVEL = 0.5
+    const PIN_TAIL = 0.3
+    const TRAVEL_END = PIN_HOLD + PIN_TRAVEL
+    const TL_END = TRAVEL_END + PIN_TAIL
 
     // The headings rise a beat after the dock, leaving the rest of the tail as a
     // brief hold before the pin releases.
-    const HEADINGS_START = PIN_TRAVEL + 0.15
+    const HEADINGS_START = TRAVEL_END + 0.1
 
     // The dock cross-fade and heading rise are fired once, forward-only, from the
     // scroll progress instead of being tweened by the scrubbed timeline. As one-shot
@@ -120,8 +124,8 @@ export function initHero() {
         docked = true
         // The travelling shield fades out as the header's own shield (the full
         // lockup overlaid on the wordmark) fades in, so it reads as settling in.
-        gsap.to(logo, { opacity: 0, duration: 0.25, ease: 'sine.out', overwrite: 'auto' })
-        gsap.to(headerShield, { opacity: 1, duration: 0.25, ease: 'sine.out' })
+        gsap.to(logo, { opacity: 0, duration: 0.5, ease: 'sine.inOut', overwrite: 'auto' })
+        gsap.to(headerShield, { opacity: 1, duration: 0.5, ease: 'sine.inOut' })
     }
 
     const raiseHeadings = () => {
@@ -135,28 +139,35 @@ export function initHero() {
             trigger: stage,
             start: 'top top',
             end: `+=${TL_END * 100}%`,
-            scrub: true,
+            // Numeric scrub: the timeline catches up to the scroll position over
+            // ~0.8s rather than tracking it frame for frame, so the shield glides
+            // and settles instead of snapping with every notch of the wheel.
+            scrub: 0.8,
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-                if (self.progress >= PIN_TRAVEL / TL_END) dock()
+                if (self.progress >= TRAVEL_END / TL_END) dock()
                 if (self.progress >= HEADINGS_START / TL_END) raiseHeadings()
             },
         },
     })
 
-    tl.to(
-        logo,
-        {
-            x: () => target.x,
-            y: () => target.y,
-            scale: () => target.scale,
-            ease: 'none',
-            duration: PIN_TRAVEL,
-        },
-        0,
-    ).to({}, { duration: PIN_TAIL }, PIN_TRAVEL)
+    tl.to({}, { duration: PIN_HOLD }, 0)
+        .to(
+            logo,
+            {
+                x: () => target.x,
+                y: () => target.y,
+                scale: () => target.scale,
+                // Eased rather than linear so the shield leaves the centre and
+                // arrives in the header gently, instead of running at a flat clip.
+                ease: 'power1.inOut',
+                duration: PIN_TRAVEL,
+            },
+            PIN_HOLD,
+        )
+        .to({}, { duration: PIN_TAIL }, TRAVEL_END)
 
     // Stage B: the nav stays transparent for as long as the video is on screen and
     // only resolves to the solid white strip as the last of it passes under the
